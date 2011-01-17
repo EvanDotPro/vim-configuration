@@ -5,3 +5,17 @@
 " not by any means limited to such.
 "
 
+"
+" AESTHETICS
+"
+colors lucius
+set guifont=Monospace\ 9
+
+"
+" CUSTOM LEADER SHORTCUTS
+"
+" Save file shortcut
+nmap <leader>w :w!<cr>
+
+" Edit .vimrc shortcut
+map <leader>e :e! ~/.vim/.vimrc<cr>
