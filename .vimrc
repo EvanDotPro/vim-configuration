@@ -8,6 +8,7 @@
 "
 " AESTHETICS
 "
+set t_Co=256
 colors lucius
 set guifont=Monospace\ 9
 
