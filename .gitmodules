@@ -13,3 +13,6 @@
 [submodule "submodules/nerdtree"]
 	path = submodules/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+[submodule "submodules/minibufexpl"]
+	path = submodules/minibufexpl
+	url = git://github.com/fholgado/minibufexpl.vim.git
