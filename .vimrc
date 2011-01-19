@@ -161,34 +161,4 @@ map <C-n> :bnext<cr>
 let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Shortcut to close tab/buffer
-" nmap <leader>q <Plug>Kwbd
-
-
-
-function! TabClose()
-  let x=[]
-  let windowCount=0
-  windo call add(x, [winnr(), bufname('%')])
-  for i in x
-    " TODO: NERD_tree_[0-9]+
-    if i[1] != '-MiniBufExplorer-' && i[1] != 'NERD_tree_1'
-      let windowCount=windowCount+1
-      echo i
-    endif
-  endfor
-  if windowCount > 1
-    :q
-  endif
-  echo windowCount
-endfunction
-
-function! ListWindows()
-  let x=[]
-  windo call add(x, [winnr(), bufnr('%'), bufname('%')])
-  for i in x
-    " TODO: NERD_tree_[0-9]+
-    if i[2] != '-MiniBufExplorer-' && i[2] != 'NERD_tree_1'
-      echo i
-    endif
-  endfor
-endfunction
+map <leader>q :BW<cr>
