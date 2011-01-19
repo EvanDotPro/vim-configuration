@@ -15,21 +15,21 @@ Comming soon:
 Current Features
 ----------------
 * IDE-like tabs (via MiniBufExplorer, not Vim tabs)
-    * <C-TAB> and <C-S-TAB> to cycle through open tabs (alternatively <C-p> and
-      <C-n>)
-    * <leader>q to close the current focused tab
+    * `<C-TAB>` and `<C-S-TAB>` to cycle through open tabs (alternatively `<C-p>` and
+      `<C-n>`)
+    * `<leader>q` to close the current focused tab
 * File tree navigation (via NERDTree)
-    * <F6> to toggle file tree on/off.
+    * `<F6>` to toggle file tree on/off.
     * Set the file tree base directory by putting `let g:startDir = '/path/to/workspace'` 
       in your Vim directory. (Tip: use `:echo $VIMHOME` to locate your Vim directory.)
 * Easy shortcuts
-    * <C-a> to select entire document
-    * <leader>w to write current file
-    * <leader>c and <leader>v to copy/paste with the system clipboard.
+    * `<C-a>` to select entire document
+    * `<leader>w` to write current file
+    * `<leader>c` and `<leader>v` to copy/paste with the system clipboard.
 * Git integration (via vim-fugitive)
     * Git branch information for current file in status line
     * Ability to run Git commands within Vim. (Try `:git status`)
 * Zen Coding support
-    * `div#page>div.logo+ul#navigation>li*5>a`<C-e> expands to full, tabbed, HTML.
+    * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-e>` to expand to full, tabbed, HTML.
 * Much, much more coming soon. I'm only like 10% done getting this set up, so
   don't think that this is it.
