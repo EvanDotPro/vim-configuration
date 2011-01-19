@@ -21,7 +21,7 @@ Current Features
 * File tree navigation (via NERDTree)
     * `<F6>` to toggle file tree on/off.
     * Set the file tree base directory by putting `let g:startDir = '/path/to/workspace'` 
-      in your Vim directory. (Tip: use `:echo $VIMHOME` to locate your Vim directory.)
+      in a file named `homedir.vim` in your Vim directory. If you don't know where your Vim directory is, use `:echo $VIMHOME` from within Vim once you've installed this configuration. (Note: homedir.vim is .gitignored, so you don't have to worry about it messing with updates.)
 * Easy shortcuts
     * `<C-a>` to select entire document
     * `<leader>w` to write current file
