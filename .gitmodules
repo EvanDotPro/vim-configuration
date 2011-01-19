@@ -16,3 +16,6 @@
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
+[submodule "submodules/bufkill"]
+	path = submodules/bufkill
+	url = git://github.com/vim-scripts/bufkill.vim.git
