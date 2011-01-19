@@ -29,5 +29,7 @@ Current Features
 * Git integration (via vim-fugitive)
     * Git branch information for current file in status line
     * Ability to run Git commands within Vim. (Try `:git status`)
+* Zen Coding support
+    * `div#page>div.logo+ul#navigation>li*5>a`<C-e> expands to full, tabbed, HTML.
 * Much, much more coming soon. I'm only like 10% done getting this set up, so
   don't think that this is it.

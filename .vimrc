@@ -138,6 +138,9 @@ map <leader>c		"+y
 " Select all text
 map <C-a> ggVG
 
+" Zen Coding expansion shortcut
+let g:user_zen_expandabbr_key = '<C-e>'
+
 "------------------
 " MiniBufExplorer
 "------------------
