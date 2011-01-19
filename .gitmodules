@@ -19,3 +19,6 @@
 [submodule "submodules/bufkill"]
 	path = submodules/bufkill
 	url = git://github.com/vim-scripts/bufkill.vim.git
+[submodule "submodules/zencoding"]
+	path = submodules/zencoding
+	url = git://github.com/mattn/zencoding-vim.git
