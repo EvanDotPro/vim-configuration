@@ -98,11 +98,9 @@ set hidden
 "--------------------------
 " NERDTree Plugin Settings
 "--------------------------
-" Toggle the NERD Tree on an off with F6
-nmap <F6> :NERDTreeToggle<CR>
-
-" Close the NERD Tree with Shift-F6
-nmap <S-F6> :NERDTreeClose<CR>
+" Toggle the NERD Tree on an off with F6 in normal or insert mode
+inoremap <F6> <ESC>:NERDTreeToggle<CR><C-w>li
+map <F6> :NERDTreeToggle<CR><C-w>l
 
 " Make NERDTree show hidden files
 let NERDTreeShowHidden=1
@@ -128,17 +126,17 @@ autocmd VimEnter * wincmd p
 " CUSTOM SHORTCUTS
 "------------------
 " Save file shortcut
-nmap <leader>w :w!<cr>
+map <leader>w :w!<CR>
 
-" Edit .vimrc shortcut
-map <leader>v :e ~/.vim/.vimrc<cr>
+" Edit .vimrc shortcut.
+map <leader>e :e ~/.vim/.vimrc<CR>
 
 " Easy copy and paste
-map <C-A-v>		"+gP
-map <leader>y		"+y
+map <leader>v		"+gP
+map <leader>c		"+y
 
 " Select all text
-nmap <C-a> ggVG
+map <C-a> ggVG
 
 "------------------
 " MiniBufExplorer
@@ -156,9 +154,9 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMaxSize = 3
 
 " Shortcuts for switching tabs/buffers
-map <C-p> :bprev<cr>
-map <C-n> :bnext<cr>
+map <C-p> :bprev<CR>
+map <C-n> :bnext<CR>
 let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Shortcut to close tab/buffer
-map <leader>q :BW<cr>
+map <leader>q :BW<CR>
