@@ -7,7 +7,6 @@
 " Load vim-pathogen
 filetype off
 call pathogen#runtime_append_all_bundles()
-
 " TODO: Figure out how to keep plugin tags files cleanly out of Git.
 "call pathogen#helptags()
 
@@ -27,7 +26,7 @@ set guifont=Monospace\ 9
 set ch=2
 
 " Set the status line the way I like it
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ %{fugitive#statusline()}
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ %=%{fugitive#statusline()}
 
 " Always put a status line in, even if there is only one window
 set laststatus=2
@@ -110,8 +109,8 @@ let NERDTreeShowHidden=1
 
 " Set the starting directory for Vim/NERDTree
 " To override this, put let g:startDir = '/path/to/dir' in $HOME/.vim/homedir.vim
-if filereadable(expand("$HOME/.vim/homedir.vim"))
-  source $HOME/.vim/homedir.vim
+if filereadable(expand("$VIMHOME/homedir.vim"))
+  source $VIMHOME/homedir.vim
 else
   let g:startDir = $HOME
 endif
@@ -135,8 +134,61 @@ nmap <leader>w :w!<cr>
 map <leader>v :e ~/.vim/.vimrc<cr>
 
 " Easy copy and paste
-map <leader>p		"+gP
+map <C-A-v>		"+gP
 map <leader>y		"+y
 
 " Select all text
 nmap <C-a> ggVG
+
+"------------------
+" MiniBufExplorer
+"------------------
+" make tabs show complete (no broken on two lines)
+let g:miniBufExplTabWrap = 1
+
+" If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
+let g:miniBufExplModSelTarget = 1
+
+" If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
+let g:miniBufExplUseSingleClick = 1
+
+" <max lines: defualt 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
+let g:miniBufExplMaxSize = 3
+
+" Shortcuts for switching tabs/buffers
+map <C-p> :bprev<cr>
+map <C-n> :bnext<cr>
+let g:miniBufExplMapCTabSwitchBufs = 1
+
+" Shortcut to close tab/buffer
+" nmap <leader>q <Plug>Kwbd
+
+
+
+function! TabClose()
+  let x=[]
+  let windowCount=0
+  windo call add(x, [winnr(), bufname('%')])
+  for i in x
+    " TODO: NERD_tree_[0-9]+
+    if i[1] != '-MiniBufExplorer-' && i[1] != 'NERD_tree_1'
+      let windowCount=windowCount+1
+      echo i
+    endif
+  endfor
+  if windowCount > 1
+    :q
+  endif
+  echo windowCount
+endfunction
+
+function! ListWindows()
+  let x=[]
+  windo call add(x, [winnr(), bufnr('%'), bufname('%')])
+  for i in x
+    " TODO: NERD_tree_[0-9]+
+    if i[2] != '-MiniBufExplorer-' && i[2] != 'NERD_tree_1'
+      echo i
+    endif
+  endfor
+endfunction
