@@ -22,3 +22,6 @@
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
+[submodule "submodules/gist"]
+	path = submodules/gist
+	url = git://github.com/vim-scripts/Gist.vim.git

@@ -10,6 +10,10 @@ call pathogen#runtime_append_all_bundles()
 " TODO: Figure out how to keep plugin tags files cleanly out of Git.
 "call pathogen#helptags()
 
+" This needs to come before other stuff (like set showcmd) because it affects
+" various other options.
+set nocompatible
+
 "------------
 " AESTHETICS
 "------------
@@ -54,7 +58,6 @@ set showcmd
 "--------------
 " Coding Style
 "--------------
-set nocompatible
 set expandtab
 set textwidth=80
 set tabstop=4
@@ -100,7 +103,7 @@ set hidden
 "--------------------------
 " Toggle the NERD Tree on an off with F6 in normal or insert mode
 inoremap <F6> <ESC>:NERDTreeToggle<CR><C-w>li
-map <F6> :NERDTreeToggle<CR><C-w>l
+map <F6> :NERDTreeToggle<CR><C-w>l:<ESC>
 
 " Make NERDTree show hidden files
 let NERDTreeShowHidden=1
