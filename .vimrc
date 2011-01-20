@@ -13,6 +13,12 @@ call pathogen#runtime_append_all_bundles()
 " This needs to come before other stuff (like set showcmd) because it affects
 " various other options.
 set nocompatible
+if filereadable(expand("$VIMHOME/config.vim"))
+  source $VIMHOME/config.vim
+else
+  redraw
+  echomsg "Vim Config Error: Could not load config.vim. Did you copy config.dist.vim to config.vim?"
+endif
 
 "------------
 " AESTHETICS
@@ -105,22 +111,13 @@ set hidden
 inoremap <F6> <ESC>:NERDTreeToggle<CR><C-w>li
 map <F6> :NERDTreeToggle<CR><C-w>l:<ESC>
 
-" Make NERDTree show hidden files
-let NERDTreeShowHidden=1
-
-" Set the starting directory for Vim/NERDTree
-" To override this, put let g:startDir = '/path/to/dir' in $HOME/.vim/homedir.vim
-if filereadable(expand("$VIMHOME/homedir.vim"))
-  source $VIMHOME/homedir.vim
-else
-  let g:startDir = $HOME
-endif
-
 " Set the default directory for NERDTree
 autocmd VimEnter * execute "cd" fnameescape(g:startDir)
 
 " Enable NERDTree
-autocmd VimEnter * NERDTree
+if g:openTreeOnStart > 0
+    autocmd VimEnter * NERDTree
+endif
 
 " Focus the editor buffer
 autocmd VimEnter * wincmd p
@@ -166,3 +163,8 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Shortcut to close tab/buffer
 map <leader>q :BW<CR>
+
+" Allow users to cleanly override anything they want
+if filereadable(expand("$VIMHOME/override.vim"))
+  source $VIMHOME/override.vim
+endif

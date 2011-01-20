@@ -20,8 +20,6 @@ Current Features
     * `<leader>q` to close the current focused tab
 * File tree navigation (via NERDTree)
     * `<F6>` to toggle file tree on/off.
-    * Set the file tree base directory by putting `let g:startDir = '/path/to/workspace'` 
-      in a file named `homedir.vim` in your Vim directory. If you don't know where your Vim directory is, use `:echo $VIMHOME` from within Vim once you've installed this configuration. (Note: homedir.vim is .gitignored, so you don't have to worry about it messing with updates.)
 * Easy shortcuts
     * `<C-a>` to select entire document
     * `<leader>w` to write current file
@@ -31,12 +29,16 @@ Current Features
     * Ability to run Git commands within Vim. (Try `:git status`)
 * Zen Coding support
     * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-e>` to expand to full, tabbed, HTML.
-* GitHub Gist Integration
+* GitHub Gist integration
     * From any file, run `:Gist` to post to a Gist. Use `:Gist -p` for a private
       Gist.
     * Optionally have the Gist URL copied to your clipboard and/or launched in
       your browser.
     * Requires Git with `github.user` and `github.token` global configuration
       values set.
-* Much, much more coming soon. I'm only like 10% done getting this set up, so
-  don't think that this is it.
+* Easy to configure
+    * Simply copy `config.dist.vim` to `config.vim` and set the values
+    * Experienced Vim users can create an `override.vim` file which will
+      automatically be sourced after everything else, allowing anything to be
+      overridden. This will not affect updates, as override.vim is already
+      listed in the .gitignore.
