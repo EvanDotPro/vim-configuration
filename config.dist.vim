@@ -31,3 +31,38 @@ let g:gist_detect_filetype = 1
 " If you want to launch the Gist in your browser automatically
 "let g:gist_open_browser_after_post = 1
 "let g:gist_browser_command = 'firefox %URL% &'
+
+
+"--------------------------------
+" PHP Docblock Generation Options
+"--------------------------------
+
+" Default values for PHP comment blocks
+let g:pdoc_cfg_Package = ''
+let g:pdoc_cfg_Version = '$Id: $'
+let g:pdoc_cfg_Author = 'Your Name <user@domain.tld>'
+let g:pdoc_cfg_Copyright = '2010 Organization'
+let g:pdoc_cfg_License = 'GPL Version 3.0 {@link http://www.gnu.org/licenses/gpl-3.0.txt}'
+
+" Default parameter type
+let g:pdoc_cfg_Type = 'mixed'
+
+" Default return value
+let g:pdoc_cfg_ReturnVal = 'void'
+
+" Wether to create @uses tags for implementation of interfaces and inheritance
+let g:pdoc_cfg_Uses = 1
+
+" :set paste before documenting (1|0)? Recommended.
+let g:pdoc_cfg_paste = 1
+
+" Wether for PHP5 code PHP4 tags should be set, like @access,... (1|0)?
+let g:pdoc_cfg_php4always = 0
+ 
+" Wether to guess scopes after PEAR coding standards:
+" $_foo/_bar() == <private|protected> (1|0)?
+let g:pdoc_cfg_php4guess = 1
+
+" If you selected 1 for the last value, this scope identifier will be used for
+" the identifiers having an _ in the first place.
+let g:pdoc_cfg_php4guessval = 'protected'

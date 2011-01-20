@@ -4,15 +4,15 @@
 " This configuration is primarily geared towards PHP / web developers, but
 " not by any means limited to such.
 
+" This needs to come before other stuff (like set showcmd) because it affects
+" various other options.
+set nocompatible
 " Load vim-pathogen
 filetype off
 call pathogen#runtime_append_all_bundles()
 " TODO: Figure out how to keep plugin tags files cleanly out of Git.
 "call pathogen#helptags()
 
-" This needs to come before other stuff (like set showcmd) because it affects
-" various other options.
-set nocompatible
 if filereadable(expand("$VIMHOME/config.vim"))
   source $VIMHOME/config.vim
 else
@@ -141,6 +141,10 @@ map <C-a> ggVG
 " Zen Coding expansion shortcut
 let g:user_zen_expandabbr_key = '<C-e>'
 
+inoremap <C-d> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-d> :call PhpDocSingle()<CR>
+vnoremap <C-d> :call PhpDocRange()<CR>
+
 "------------------
 " MiniBufExplorer
 "------------------
@@ -163,6 +167,12 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Shortcut to close tab/buffer
 map <leader>q :BW<CR>
+
+" Shortcut to re-open last closed tab
+map <leader>t :BUNDO<CR>
+
+" Confirm when closing unsaved tab
+let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
 
 " Allow users to cleanly override anything they want
 if filereadable(expand("$VIMHOME/override.vim"))

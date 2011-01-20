@@ -28,3 +28,6 @@
 [submodule "submodules/php"]
 	path = submodules/php
 	url = git://github.com/vim-scripts/php.vim--Garvin.git
+[submodule "submodules/php-doc"]
+	path = submodules/php-doc
+	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git

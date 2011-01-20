@@ -18,6 +18,7 @@ Current Features
     * `<C-TAB>` and `<C-S-TAB>` to cycle through open tabs (alternatively `<C-p>` and
       `<C-n>`)
     * `<leader>q` to close the current focused tab
+    * `<leader>t` to re-open the last closed tab
 * File tree navigation (via NERDTree)
     * `<F6>` to toggle file tree on/off.
 * Easy shortcuts
@@ -39,6 +40,9 @@ Current Features
 * Enhanced PHP 5.3 support
     * Improved syntax highlighting for new PHP 5.3 features such as namespaces, nowdoc, etc.
     * Recognition of new built-in classes and constants.
+    * Quickly generate PHP doc blocks with `<C-d>` in normal, insert, or select
+      mode. In select mode, it will comment all uncommented elements in the
+      selected area.
 * Easy to configure
     * Simply copy `config.dist.vim` to `config.vim` and set the values
     * Experienced Vim users can create an `override.vim` file which will
