@@ -31,5 +31,12 @@ Current Features
     * Ability to run Git commands within Vim. (Try `:git status`)
 * Zen Coding support
     * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-e>` to expand to full, tabbed, HTML.
+* GitHub Gist Integration
+    * From any file, run `:Gist` to post to a Gist. Use `:Gist -p` for a private
+      Gist.
+    * Optionally have the Gist URL copied to your clipboard and/or launched in
+      your browser.
+    * Requires Git with `github.user` and `github.token` global configuration
+      values set.
 * Much, much more coming soon. I'm only like 10% done getting this set up, so
   don't think that this is it.
