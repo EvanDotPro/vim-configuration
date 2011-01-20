@@ -31,3 +31,6 @@
 [submodule "submodules/php-doc"]
 	path = submodules/php-doc
 	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
+[submodule "submodules/phpcomplete"]
+	path = submodules/phpcomplete
+	url = git://github.com/shawncplus/phpcomplete.vim.git

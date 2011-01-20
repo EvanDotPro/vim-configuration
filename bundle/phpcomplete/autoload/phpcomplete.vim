@@ -1,0 +1,1 @@
+../../../submodules/phpcomplete/phpcomplete.vim
