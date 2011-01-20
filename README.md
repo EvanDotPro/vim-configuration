@@ -36,6 +36,9 @@ Current Features
       your browser.
     * Requires Git with `github.user` and `github.token` global configuration
       values set.
+* Enhanced PHP 5.3 support
+    * Improved syntax highlighting for new PHP 5.3 features such as namespaces, nowdoc, etc.
+    * Recognition of new built-in classes and constants.
 * Easy to configure
     * Simply copy `config.dist.vim` to `config.vim` and set the values
     * Experienced Vim users can create an `override.vim` file which will
