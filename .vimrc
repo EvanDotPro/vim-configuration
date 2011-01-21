@@ -104,6 +104,15 @@ set ttyfast
 " Allow buffers to have unsaved changes
 set hidden
 
+" Bash-like tab completion for command mode
+set wildmode=list:longest,full
+set wildmenu
+
+" Allow mouse support in terminal Vim
+set mouse=a
+" If we have any issues with mouse support in screen, try this:
+"termcapinfo linux|xterm|screen* ti@:te@:XT
+
 "--------------------------
 " NERDTree Plugin Settings
 "--------------------------
