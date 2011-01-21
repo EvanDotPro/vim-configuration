@@ -193,11 +193,15 @@ endif
 "------------------------
 
 " Tab for auto-complete
-let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabDefaultCompletionType = '<C-x><C-o>'
 
 " This makes auto-completion only insert the longest common text among all
 " matches in the list (like bash).
-set completeopt=longest,menuone
+set completeopt=longest,menuone,preview
+
+" Automatically hide the preview panel
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Esc to cancel auto-competion, but not leave insert mode
 inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
