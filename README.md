@@ -15,21 +15,20 @@ Comming soon:
 Current Features
 ----------------
 * IDE-like tabs (via MiniBufExplorer, not Vim tabs)
-    * `<C-TAB>` and `<C-S-TAB>` to cycle through open tabs (alternatively `<C-p>` and
-      `<C-n>`)
-    * `<leader>q` to close the current focused tab
-    * `<leader>t` to re-open the last closed tab
+    * `<C-TAB>` and `<C-S-TAB>` to cycle through open tabs. 
+    * `<leader>q` to close the current focused tab.
+    * `<leader>t` to re-open the last closed tab.
 * File tree navigation (via NERDTree)
     * `<F6>` to toggle file tree on/off.
 * Easy shortcuts
-    * `<C-a>` to select entire document
-    * `<leader>w` to write current file
+    * `<C-a>` to select entire document.
+    * `<leader>w` to write current file.
     * `<leader>c` and `<leader>v` to copy/paste with the system clipboard.
 * Git integration (via vim-fugitive)
-    * Git branch information for current file in status line
+    * Git branch information for current file in status line.
     * Ability to run Git commands within Vim. (Try `:git status`)
 * Zen Coding support
-    * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-e>` to expand to full, tabbed, HTML.
+    * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-z>` to expand to full, tabbed, HTML.
 * GitHub Gist integration
     * From any file, run `:Gist` to post to a Gist. Use `:Gist -p` for a private
       Gist.
@@ -44,7 +43,7 @@ Current Features
       mode. In select mode, it will comment all uncommented elements in the
       selected area.
 * Easy to configure
-    * Simply copy `config.dist.vim` to `config.vim` and set the values
+    * Simply copy `config.dist.vim` to `config.vim` and set the values.
     * Experienced Vim users can create an `override.vim` file which will
       automatically be sourced after everything else, allowing anything to be
       overridden. This will not affect updates, as override.vim is already

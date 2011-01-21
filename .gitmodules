@@ -34,3 +34,6 @@
 [submodule "submodules/phpcomplete"]
 	path = submodules/phpcomplete
 	url = git://github.com/shawncplus/phpcomplete.vim.git
+[submodule "submodules/supertab"]
+	path = submodules/supertab
+	url = git://github.com/ervandew/supertab.git

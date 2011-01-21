@@ -139,7 +139,7 @@ map <leader>c		"+y
 map <C-a> ggVG
 
 " Zen Coding expansion shortcut
-let g:user_zen_expandabbr_key = '<C-e>'
+let g:user_zen_expandabbr_key = '<C-z>'
 
 inoremap <C-d> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-d> :call PhpDocSingle()<CR>
@@ -178,3 +178,17 @@ let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
 if filereadable(expand("$VIMHOME/override.vim"))
   source $VIMHOME/override.vim
 endif
+
+"------------------------
+" Auto-Completion Options
+"------------------------
+
+" Tab for auto-complete
+let g:SuperTabDefaultCompletionType = 'context'
+
+" This makes auto-completion only insert the longest common text among all
+" matches in the list (like bash).
+set completeopt=longest,menuone
+
+" Esc to cancel auto-competion, but not leave insert mode
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
