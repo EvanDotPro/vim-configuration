@@ -160,9 +160,6 @@ vnoremap <C-d> :call PhpDocRange()<CR>
 " make tabs show complete (no broken on two lines)
 let g:miniBufExplTabWrap = 1
 
-" If you use other explorers like TagList you can (As of 6.2.8) set it at 1:
-let g:miniBufExplModSelTarget = 1
-
 " If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
 let g:miniBufExplUseSingleClick = 1
 
