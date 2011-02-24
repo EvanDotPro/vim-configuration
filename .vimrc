@@ -154,6 +154,11 @@ inoremap <C-d> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-d> :call PhpDocSingle()<CR>
 vnoremap <C-d> :call PhpDocRange()<CR>
 
+" Sudo save (requires you to comment the 'Defaults   requiretty' line in
+" /etc/suoders
+ca w!! w !sudo tee "%" > /dev/null
+map <leader>sw :w!!<CR>
+
 "------------------
 " MiniBufExplorer
 "------------------
