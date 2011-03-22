@@ -37,3 +37,6 @@
 [submodule "submodules/supertab"]
 	path = submodules/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "submodules/vim-extradite"]
+	path = submodules/vim-extradite
+	url = git://github.com/int3/vim-extradite.git
