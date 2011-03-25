@@ -24,9 +24,10 @@ Current Features
     * `<C-a>` to select entire document.
     * `<leader>w` to write current file.
     * `<leader>c` and `<leader>v` to copy/paste with the system clipboard.
-* Git integration (via vim-fugitive)
+* Git integration (via fugitive.vim and extradite.vim)
     * Git branch information for current file in status line.
     * Ability to run Git commands within Vim. (Try `:git status`)
+    * Per-file Git history by running `:Extradite!` (Hit `q` to close)
 * Zen Coding support
     * Type `div#page>div.logo+ul#navigation>li*5>a` then hit `<C-z>` to expand to full, tabbed, HTML.
 * GitHub Gist integration
