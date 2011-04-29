@@ -113,6 +113,10 @@ set mouse=a
 " If we have any issues with mouse support in screen, try this:
 "termcapinfo linux|xterm|screen* ti@:te@:XT
 
+" Disable the stupid blinking cursor
+:set guicursor+=a:blinkon0
+
+
 "--------------------------
 " NERDTree Plugin Settings
 "--------------------------
