@@ -1,4 +1,5 @@
-"""""""""""""""""" Testing NerdTree Plugin
+" Chmod/Executable NerdTree Plugin
+" Author: Evan Coury (http://blog.evan.pro/)
 if exists("g:loaded_nerdtree_execoff_menuitem")
     finish
 endif
@@ -11,17 +12,14 @@ call NERDTreeAddMenuItem({
             \ 'isActiveCallback': 'NERDTreeExecFileActive' })
 
 function! NERDTreeExecFileOff()
-    let treenode = g:NERDTreeFileNode.GetSelected()
-    "echo "==========================================================\n"
-    "echo "Complete the command to execute (add arguments etc):\n"
-    let cmd = 'chmod -x ' . treenode.path.str({'escape': 1})
-    "let cmd = input(':!', cmd . ' ')
+    let curNode = g:NERDTreeFileNode.GetSelected()
+    let chmodArg = input("chmod: ", '-x')
+    let cmd = 'chmod ' . chmodArg . ' ' . curNode.path.str({'escape': 1})
 
     if cmd != ''
         let success = system(cmd)
-        call treenode.refresh()
+        call curNode.refresh()
         call NERDTreeRender()
-        echo "\n"
     else
         echo "Aborted"
     endif
@@ -39,22 +37,19 @@ call NERDTreeAddMenuItem({
             \ 'isActiveCallback': 'NERDTreeExecFileNotActive' })
 
 function! NERDTreeExecFileNotActive()
-    let node = g:NERDTreeFileNode.GetSelected()
-    return !node.path.isDirectory && !node.path.isExecutable
+    let curNode = g:NERDTreeFileNode.GetSelected()
+    return !curNode.path.isDirectory && !curNode.path.isExecutable
 endfunction
 
 function! NERDTreeExecFileOn()
-    let treenode = g:NERDTreeFileNode.GetSelected()
-    "echo "==========================================================\n"
-    "echo "Complete the command to execute (add arguments etc):\n"
-    let cmd = 'chmod +x ' . treenode.path.str({'escape': 1})
-    "let cmd = input(':!', cmd . ' ')
+    let curNode = g:NERDTreeFileNode.GetSelected()
+    let chmodArg = input("chmod: ", '+x')
+    let cmd = 'chmod ' . chmodArg . ' ' . curNode.path.str({'escape': 1})
 
     if cmd != ''
         let success = system(cmd)
-        call treenode.refresh()
+        call curNode.refresh()
         call NERDTreeRender()
-        echo "\n"
     else
         echo "Aborted"
     endif
