@@ -175,6 +175,10 @@ let g:miniBufExplUseSingleClick = 1
 " <max lines: defualt 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
 let g:miniBufExplMaxSize = 3
 
+" Do not allow files to accidentally get opened in the NERDTree or other
+" non-modifiable buffers.
+let g:miniBufExplModSelTarget = 1
+
 " Shortcuts for switching tabs/buffers
 map <C-p> :bprev<CR>
 map <C-n> :bnext<CR>
