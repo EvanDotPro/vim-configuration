@@ -115,6 +115,10 @@ set mouse=a
 " Disable the stupid blinking cursor
 :set guicursor+=a:blinkon0
 
+" Disable middle-click paste (causes too many accidents with crappy mice)
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
+
 "------------------
 " MiniBufExplorer
 "------------------
