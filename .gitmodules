@@ -40,3 +40,6 @@
 [submodule "submodules/vim-extradite"]
 	path = submodules/vim-extradite
 	url = git://github.com/int3/vim-extradite.git
+[submodule "submodules/php_getset"]
+	path = submodules/php_getset
+	url = git@github.com:EvanDotPro/php_getset.vim.git
