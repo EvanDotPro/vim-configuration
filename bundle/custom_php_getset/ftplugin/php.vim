@@ -21,4 +21,5 @@ let b:phpgetset_setterTemplate =
   \ "   public function %funcname%($%varnameclean%)\n" .
   \ "   {\n" .
   \ "       $this->%varname% = $%varnameclean%;\n" .
+  \ "       return $this;\n" .
   \ "   }" 
