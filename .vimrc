@@ -201,6 +201,9 @@ vnoremap <C-d> :call PhpDocRange()<CR>
 ca w!! w !sudo tee "%" > /dev/null
 map <leader>sw :w!!<CR>
 
+" Enter key is pointless when not in insert mode anyway
+map <S-Enter> O<Esc>
+map <CR> o<Esc>
 
 " Allow users to cleanly override anything they want
 if filereadable(expand("$VIMHOME/override.vim"))
