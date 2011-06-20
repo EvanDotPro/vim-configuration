@@ -74,6 +74,10 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
 "--------------
 " PHP-Specific
 "--------------

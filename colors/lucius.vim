@@ -8,3 +8,6 @@ endif
 hi Comment          guifg=#5D8D8F           ctermfg=66              gui=none
 hi CursorLine       gui=NONE                guibg=#202438           gui=none
 hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
+
+hi ColorColumn       gui=NONE                guibg=#202438           gui=none
+hi ColorCOlumn       cterm=NONE              ctermbg=236             cterm=none
