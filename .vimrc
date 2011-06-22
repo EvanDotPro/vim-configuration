@@ -74,8 +74,10 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
-if exists('+colorcolumn')
-  set colorcolumn=80
+if g:showColumnMarker > 0
+  if exists('+colorcolumn')
+    set colorcolumn=g:columnMarkerCount
+  endif
 endif
 
 "--------------
@@ -204,11 +206,6 @@ vnoremap <C-d> :call PhpDocRange()<CR>
 " /etc/suoders
 ca w!! w !sudo tee "%" > /dev/null
 map <leader>sw :w!!<CR>
-
-" Enter key is pointless when not in insert mode anyway
-map <S-Enter> O<Esc>
-map <CR> o<Esc>
-map <BS> ddk
 
 " Allow users to cleanly override anything they want
 if filereadable(expand("$VIMHOME/override.vim"))

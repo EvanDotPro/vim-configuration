@@ -66,3 +66,14 @@ let g:pdoc_cfg_php4guess = 1
 " If you selected 1 for the last value, this scope identifier will be used for
 " the identifiers having an _ in the first place.
 let g:pdoc_cfg_php4guessval = 'protected'
+
+
+"--------------
+" Misc Settings
+"--------------
+
+" Show a column line to help with coding standards
+let g:showColumnMarker = 0
+
+" At which column to show the line
+let g:columnMarkerCount = 80
