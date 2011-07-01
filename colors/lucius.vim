@@ -10,4 +10,9 @@ hi CursorLine       gui=NONE                guibg=#202438           gui=none
 hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
 
 hi ColorColumn       gui=NONE                guibg=#202438           gui=none
-hi ColorCOlumn       cterm=NONE              ctermbg=236             cterm=none
+hi ColorColumn       cterm=NONE              ctermbg=236             cterm=none
+
+hi Special          guifg=#d0a0f0                                   gui=none
+hi Special          ctermfg=182                                     cterm=none
+hi SpecialBold      guifg=#d0a0f0                                   gui=bold
+hi SpecialBold      ctermfg=182                                     cterm=bold
