@@ -10,9 +10,6 @@
 [submodule "submodules/cmdalias"]
 	path = submodules/cmdalias
 	url = git://github.com/vim-scripts/cmdalias.vim.git
-[submodule "submodules/nerdtree"]
-	path = submodules/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
