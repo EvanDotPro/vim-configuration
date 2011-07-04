@@ -84,6 +84,66 @@ endif
 " PHP-Specific
 "--------------
 autocmd BufNewFile,BufRead *.phtml set ft=php
+" My awesome PHP syntax checking stuff:
+autocmd BufNewFile,BufRead,BufWritePost *.php,*.phtml execute 'call PHPsynCHK()'
+set makeprg=php\ -l\ %
+set errorformat=%m\ in\ %f\ on\ line\ %l
+function HighlightBadPhp(...)
+    echo ''
+    if(exists('a:1'))
+        let qflist=a:1
+    else
+       let qflist=getqflist()
+   endif 
+    let has_valid_error = 0
+    for error in qflist
+        if error['valid']
+            let has_valid_error = 1
+            break
+        endif
+    endfor
+    if has_valid_error
+        " Error found
+        let linecontent=getline(error.lnum)
+        if error.text =~ 'unexpected \$end$'
+            let linenum=error.lnum-1
+        elseif error.text =~ 'unexpected T_FUNCTION' && linecontent =~ '^\s*function\s.*'
+            let linenum=error.lnum-1
+        elseif error.text =~ 'unexpected T_CLASS' && linecontent =~ '^\s*class\s.*'
+            let linenum=error.lnum-1
+        else
+            let linenum=error.lnum
+        endif
+        execute 'match SpellBad /\%'.linenum.'l\V\^'.escape(getline(linenum), '\').'\$/'
+        call cursor(linenum,col('.'))
+    else
+        " No errors found, clear highlighting
+        execute 'match'
+    endif
+endfunction
+au QuickFixCmdPost make call HighlightBadPhp()
+if !exists('*PHPsynCHK')
+  function! PHPsynCHK()
+    ccl " close quickfix window
+    let winnum = winnr() " get current window number
+    let linenum = line('.')
+    let colnum = col('.')
+    let tmpfile = tempname()
+    " This will override the buffer with the php 
+    silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".bufname("%")."/g' | grep 'syntax error' >".tmpfile."; cat"
+    silent execute "silent cf ".tmpfile
+    cw " open the quickfix window if it has an error
+    execute winnum . "wincmd w"
+    silent undo
+    silent cf
+    let qflist=getqflist()
+    if 1 == len(qflist)
+      call cursor(linenum, colnum)
+    endif
+    call HighlightBadPhp(qflist)
+  endfunction
+endif
+noremap <leader>l :execute 'call PHPsynCHK()'<CR>
 
 "---------------
 " MISC SETTINGS
