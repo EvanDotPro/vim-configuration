@@ -44,6 +44,7 @@ set laststatus=2
 " Clean up the GUI in Gvim
 if has("gui_running")
   set guioptions-=T
+  set guioptions-=m
 endif
 
 " Cool trick to show what you're replacing/changing
@@ -238,6 +239,8 @@ endif
 
 " Focus the editor buffer
 autocmd VimEnter * wincmd p
+
+let g:NERDTreeMinimalUI=1
 
 "------------------
 " CUSTOM SHORTCUTS
