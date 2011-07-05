@@ -109,11 +109,13 @@ function HighlightBadPhp(...)
         " Error found
         let linecontent=getline(error.lnum)
         if error.text =~ 'unexpected \$end$'
-            let linenum=error.lnum-1
+            let linenum=FindNextNonBlankLine(error.lnum, "up")
         elseif error.text =~ 'unexpected T_FUNCTION' && linecontent =~ '^\s*function\s.*'
-            let linenum=error.lnum-1
+            let linenum=FindNextNonBlankLine(error.lnum, "up")
         elseif error.text =~ 'unexpected T_CLASS' && linecontent =~ '^\s*class\s.*'
-            let linenum=error.lnum-1
+            let linenum=FindNextNonBlankLine(error.lnum, "up")
+        elseif error.text =~ 'unexpected T_VARIABLE' && linecontent =~ '^\s*\$[A-Za-z].*'
+            let linenum=FindNextNonBlankLine(error.lnum, "up")
         else
             let linenum=error.lnum
         endif
@@ -125,6 +127,27 @@ function HighlightBadPhp(...)
     endif
 endfunction
 au QuickFixCmdPost make call HighlightBadPhp()
+function FindNextNonBlankLine(startLine, direction)
+    let matchLine=a:startLine
+    if a:direction == 'up'
+        let lines=sort(range(1, a:startLine-1), "ReverseSort")
+    else
+        let lines=range(a:startLine+1, line("$"))
+    endif
+    for line in lines
+        let linecontent=getline(line)
+        if linecontent =~ '^\s*$'
+            " just whitespace, keep looking
+        else
+            let matchLine=line
+            break
+        endif
+    endfor
+    return matchLine
+endfunction
+function ReverseSort(i1, i2)
+    return a:i2 - a:i1
+endfunction
 if !exists('*PHPsynCHK')
   function! PHPsynCHK()
     ccl " close quickfix window
@@ -136,6 +159,7 @@ if !exists('*PHPsynCHK')
     silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".escape(bufname("%"),'/')."/g' | grep 'syntax error' >".tmpfile."; cat"
     silent execute "silent cf ".tmpfile
     cw " open the quickfix window if it has an error
+    exe "resize " . 2
     execute winnum . "wincmd w"
     silent undo
     silent cf
