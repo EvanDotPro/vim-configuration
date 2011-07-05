@@ -133,7 +133,7 @@ if !exists('*PHPsynCHK')
     let colnum = col('.')
     let tmpfile = tempname()
     " This will override the buffer with the php 
-    silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".bufname("%")."/g' | grep 'syntax error' >".tmpfile."; cat"
+    silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".escape(bufname("%"),'/')."/g' | grep 'syntax error' >".tmpfile."; cat"
     silent execute "silent cf ".tmpfile
     cw " open the quickfix window if it has an error
     execute winnum . "wincmd w"
