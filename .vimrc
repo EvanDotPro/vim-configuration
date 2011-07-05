@@ -159,7 +159,9 @@ if !exists('*PHPsynCHK')
     silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".escape(bufname("%"),'/')."/g' | grep 'syntax error' >".tmpfile."; cat"
     silent execute "silent cf ".tmpfile
     cw " open the quickfix window if it has an error
-    exe "resize " . 2
+    if (getbufvar(winbufnr(0), "&buftype") == "quickfix")
+        exe "resize " . 2
+    endif
     execute winnum . "wincmd w"
     silent undo
     silent cf
