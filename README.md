@@ -43,6 +43,12 @@ Current Features
     * Quickly generate PHP doc blocks with `<C-d>` in normal, insert, or select
       mode. In select mode, it will comment all uncommented elements in the
       selected area.
+    * Automatic PHP 5 getter and setter generation for model classes: with the properties selected or
+      cursor on the line of the property, use `<leader>g` for getters, `<leader>s` for setters, and
+      `<leader>b` for both.
+    * Automatic PHP syntax checking when opening/saving PHP files. Syntax error
+      details displayed, error line underlined in red curly 'undercurl' format
+      and cursor moved to error upon save.
 * Easy to configure
     * Simply copy `config.dist.vim` to `config.vim` and set the values.
     * Experienced Vim users can create an `override.vim` file which will
