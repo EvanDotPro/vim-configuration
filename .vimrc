@@ -45,6 +45,8 @@ set laststatus=2
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
+  set guioptions+=LlRrb " bug?
+  set guioptions-=LlRrb
 endif
 
 " Cool trick to show what you're replacing/changing
