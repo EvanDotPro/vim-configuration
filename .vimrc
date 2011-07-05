@@ -116,6 +116,8 @@ function HighlightBadPhp(...)
             let linenum=FindNextNonBlankLine(error.lnum, "up")
         elseif error.text =~ 'unexpected T_VARIABLE' && linecontent =~ '^\s*\$[A-Za-z].*'
             let linenum=FindNextNonBlankLine(error.lnum, "up")
+        elseif error.text =~ 'unexpected .}.' && linecontent =~ '^\s*}.*'
+            let linenum=FindNextNonBlankLine(error.lnum, "up")
         else
             let linenum=error.lnum
         endif
