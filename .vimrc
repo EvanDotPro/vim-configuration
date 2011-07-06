@@ -91,13 +91,13 @@ autocmd BufNewFile,BufRead *.phtml set ft=php
 autocmd BufNewFile,BufRead,BufWritePost *.php,*.phtml execute 'call PHPsynCHK()'
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
+
 function HighlightBadPhp(...)
-    echo ''
     if(exists('a:1'))
         let qflist=a:1
     else
-       let qflist=getqflist()
-   endif 
+        let qflist=getqflist()
+    endif 
     let has_valid_error = 0
     for error in qflist
         if error['valid']
@@ -106,7 +106,6 @@ function HighlightBadPhp(...)
         endif
     endfor
     if has_valid_error
-        " Error found
         let linecontent=getline(error.lnum)
         if error.text =~ 'unexpected \$end$'
             let linenum=FindNextNonBlankLine(error.lnum, "up")
@@ -121,8 +120,8 @@ function HighlightBadPhp(...)
         else
             let linenum=error.lnum
         endif
-        execute 'match SpellBad /\%'.linenum.'l\V\^'.escape(getline(linenum), '\').'\$/'
-        call cursor(linenum,col('.'))
+        silent execute 'match SpellBad /\%'.linenum.'l\V\^'.escape(getline(linenum), '\').'\$/'
+        call cursor(linenum, col('.'))
     else
         " No errors found, clear highlighting
         execute 'match'
@@ -138,9 +137,7 @@ function FindNextNonBlankLine(startLine, direction)
     endif
     for line in lines
         let linecontent=getline(line)
-        if linecontent =~ '^\s*$'
-            " just whitespace, keep looking
-        else
+        if linecontent !~ '^\s*$'
             let matchLine=line
             break
         endif
@@ -150,30 +147,21 @@ endfunction
 function ReverseSort(i1, i2)
     return a:i2 - a:i1
 endfunction
-if !exists('*PHPsynCHK')
-  function! PHPsynCHK()
+function! PHPsynCHK()
     ccl " close quickfix window
     let winnum = winnr() " get current window number
-    let linenum = line('.')
-    let colnum = col('.')
     let tmpfile = tempname()
-    " This will override the buffer with the php 
-    silent execute "%!php -l -f /dev/stdin | sed 's/\\/dev\\/stdin/".escape(bufname("%"),'/')."/g' | grep 'syntax error' >".tmpfile."; cat"
-    silent execute "silent cf ".tmpfile
-    cw " open the quickfix window if it has an error
-    if (getbufvar(winbufnr(0), "&buftype") == "quickfix")
-        exe "resize " . 2
-    endif
-    execute winnum . "wincmd w"
-    silent undo
-    silent cf
+    " good luck if you have Windows
+    silent execute "!php -l ".shellescape(bufname("%"))." | grep 'Parse error' > ".tmpfile
+    silent execute "cg ".tmpfile
     let qflist=getqflist()
-    if 1 == len(qflist)
-      call cursor(linenum, colnum)
+    if 0 < len(qflist)
+        cope 2 " open the quickfix window
+        silent execute "wincmd J"
+        silent execute winnum . "wincmd w"
+        call HighlightBadPhp(qflist)
     endif
-    call HighlightBadPhp(qflist)
-  endfunction
-endif
+endfunction
 noremap <leader>l :execute 'call PHPsynCHK()'<CR>
 
 "---------------
