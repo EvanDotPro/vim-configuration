@@ -1,3 +1,26 @@
+"--------------
+" Misc Settings
+"--------------
+
+" Show a column line to help with coding standards
+let g:showColumnMarker = 0
+
+" At which column to show the line
+let g:columnMarkerCount = 80
+
+"------------
+" AESTHETICS
+"------------
+
+" Set the color scheme
+set background=dark
+"colorscheme solarized
+colorscheme lucius
+
+" Set the font
+set guifont=Anonymous\ Pro\ 11
+"set guifont=Monospace\ 9
+
 "-----------------------------
 " File Tree Options (NERDTree)
 "-----------------------------
@@ -31,6 +54,10 @@ let g:gist_detect_filetype = 1
 " If you want to launch the Gist in your browser automatically
 "let g:gist_open_browser_after_post = 1
 "let g:gist_browser_command = 'firefox %URL% &'
+
+" Set this to your GitHub username and token
+"let g:github_user = 'YourUsername'
+"let g:github_token = 'yourtokengoeshere'
 
 
 "--------------------------------
@@ -68,12 +95,3 @@ let g:pdoc_cfg_php4guess = 1
 let g:pdoc_cfg_php4guessval = 'protected'
 
 
-"--------------
-" Misc Settings
-"--------------
-
-" Show a column line to help with coding standards
-let g:showColumnMarker = 0
-
-" At which column to show the line
-let g:columnMarkerCount = 80

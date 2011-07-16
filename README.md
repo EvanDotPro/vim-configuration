@@ -4,8 +4,16 @@ Version 0.0.1 Created by Evan Coury
 
 Introduction
 ------------
-After _finally_ being converted to Vim from Eclipse PDT, I've decided to take
-some time to really polish my Vim configuration. 
+This is my awesome Vim config.
+
+Installation Notes
+------------------
+* `sudo yum install msimonson-anonymouspro-fonts xclip`
+* Copy config.dist.vim to config.vim and change the values to suit your needs.
+* If you're unhappy with any of my settings that aren't in config.vim, you can
+  create an override.vim and put your settings in there. This file is
+  .gitignored so you will still be able to pull updates cleanly and not risk
+  merge conflicts.
 
 Comming soon:
 
@@ -14,6 +22,8 @@ Comming soon:
 
 Current Features
 ----------------
+* Beautiful
+    * Two great themes: lucius and solarized
 * IDE-like tabs (via MiniBufExplorer, not Vim tabs)
     * `<C-TAB>` and `<C-S-TAB>` to cycle through open tabs. 
     * `<leader>q` to close the current focused tab.

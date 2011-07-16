@@ -26,13 +26,6 @@ endif
 " Let Vim know the terminal can handle 256 colors
 set t_Co=256
 
-" Set the color scheme
-set background=dark
-colorscheme solarized
-
-" Set the font
-set guifont=Anonymous\ Pro\ 11
-
 " Make command line two lines high
 set ch=2
 
