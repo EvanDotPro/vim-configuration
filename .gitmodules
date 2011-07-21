@@ -19,9 +19,6 @@
 [submodule "submodules/php_getset"]
 	path = submodules/php_getset
 	url = git://github.com/EvanDotPro/php_getset.vim.git
-[submodule "submodules/nerdtree"]
-	path = submodules/nerdtree
-	url = git://github.com/EvanDotPro/nerdtree.git
 [submodule "submodules/tabular"]
 	path = submodules/tabular
 	url = git://github.com/godlygeek/tabular.git
