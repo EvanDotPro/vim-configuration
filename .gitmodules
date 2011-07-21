@@ -10,9 +10,6 @@
 [submodule "submodules/vim-extradite"]
 	path = submodules/vim-extradite
 	url = git://github.com/int3/vim-extradite.git
-[submodule "submodules/php_getset"]
-	path = submodules/php_getset
-	url = git://github.com/EvanDotPro/php_getset.vim.git
 [submodule "submodules/tabular"]
 	path = submodules/tabular
 	url = git://github.com/godlygeek/tabular.git
@@ -55,3 +52,6 @@
 [submodule "bundle/phpDocumentor"]
 	path = bundle/phpDocumentor
 	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
+[submodule "bundle/php_getset.vim"]
+	path = bundle/php_getset.vim
+	url = git://github.com/EvanDotPro/php_getset.vim.git
