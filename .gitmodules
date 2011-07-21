@@ -7,9 +7,6 @@
 [submodule "submodules/vim-fugitive"]
 	path = submodules/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "submodules/cmdalias"]
-	path = submodules/cmdalias
-	url = git://github.com/vim-scripts/cmdalias.vim.git
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
@@ -49,3 +46,6 @@
 [submodule "bundle/bufkill.vim"]
 	path = bundle/bufkill.vim
 	url = git://github.com/vim-scripts/bufkill.vim.git
+[submodule "bundle/cmdalias.vim"]
+	path = bundle/cmdalias.vim
+	url = git://github.com/vim-scripts/cmdalias.vim.git
