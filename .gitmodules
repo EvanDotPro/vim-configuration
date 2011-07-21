@@ -1,9 +1,6 @@
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "submodules/php-doc"]
-	path = submodules/php-doc
-	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
 [submodule "submodules/phpcomplete"]
 	path = submodules/phpcomplete
 	url = git://github.com/shawncplus/phpcomplete.vim.git
@@ -55,3 +52,6 @@
 [submodule "bundle/php.vim"]
 	path = bundle/php.vim
 	url = git://github.com/vim-scripts/php.vim--Garvin.git
+[submodule "bundle/phpDocumentor"]
+	path = bundle/phpDocumentor
+	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
