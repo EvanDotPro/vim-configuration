@@ -13,9 +13,6 @@
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
-[submodule "submodules/bufkill"]
-	path = submodules/bufkill
-	url = git://github.com/vim-scripts/bufkill.vim.git
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
@@ -49,3 +46,6 @@
 [submodule "submodules/vim-colors-solarized"]
 	path = submodules/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/bufkill.vim"]
+	path = bundle/bufkill.vim
+	url = git://github.com/vim-scripts/bufkill.vim.git
