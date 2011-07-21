@@ -1,9 +1,6 @@
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "submodules/php"]
-	path = submodules/php
-	url = git://github.com/vim-scripts/php.vim--Garvin.git
 [submodule "submodules/php-doc"]
 	path = submodules/php-doc
 	url = git://github.com/vim-scripts/PDV--phpDocumentor-for-Vim.git
@@ -55,3 +52,6 @@
 [submodule "bundle/nerdtree-symlink"]
 	path = bundle/nerdtree-symlink
 	url = git://github.com/EvanDotPro/nerdtree-symlink.git
+[submodule "bundle/php.vim"]
+	path = bundle/php.vim
+	url = git://github.com/vim-scripts/php.vim--Garvin.git
