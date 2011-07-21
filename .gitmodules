@@ -58,3 +58,6 @@
 [submodule "bundle/vim-php-syntax-check"]
 	path = bundle/vim-php-syntax-check
 	url = git://github.com/EvanDotPro/vim-php-syntax-check.git
+[submodule "bundle/vim-zoom"]
+	path = bundle/vim-zoom
+	url = git://github.com/EvanDotPro/vim-zoom.git
