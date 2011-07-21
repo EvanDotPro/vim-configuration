@@ -4,9 +4,6 @@
 [submodule "submodules/vim-pathogen"]
 	path = submodules/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "submodules/vim-fugitive"]
-	path = submodules/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
 [submodule "submodules/minibufexpl"]
 	path = submodules/minibufexpl
 	url = git://github.com/fholgado/minibufexpl.vim.git
@@ -49,3 +46,6 @@
 [submodule "bundle/cmdalias.vim"]
 	path = bundle/cmdalias.vim
 	url = git://github.com/vim-scripts/cmdalias.vim.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
