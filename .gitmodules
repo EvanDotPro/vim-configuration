@@ -1,6 +1,3 @@
-[submodule "submodules/minibufexpl"]
-	path = submodules/minibufexpl
-	url = git://github.com/fholgado/minibufexpl.vim.git
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
@@ -49,3 +46,6 @@
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "bundle/minibufexpl.vim"]
+	path = bundle/minibufexpl.vim
+	url = git://github.com/fholgado/minibufexpl.vim.git
