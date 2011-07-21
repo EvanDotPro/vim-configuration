@@ -52,3 +52,6 @@
 [submodule "bundle/nerdtree-chmod"]
 	path = bundle/nerdtree-chmod
 	url = git://github.com/EvanDotPro/nerdtree-chmod.git
+[submodule "bundle/nerdtree-symlink"]
+	path = bundle/nerdtree-symlink
+	url = git://github.com/EvanDotPro/nerdtree-symlink.git
