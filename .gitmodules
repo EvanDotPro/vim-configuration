@@ -1,9 +1,6 @@
 [submodule "submodules/zencoding"]
 	path = submodules/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "submodules/phpcomplete"]
-	path = submodules/phpcomplete
-	url = git://github.com/shawncplus/phpcomplete.vim.git
 [submodule "submodules/supertab"]
 	path = submodules/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -55,3 +52,6 @@
 [submodule "bundle/php_getset.vim"]
 	path = bundle/php_getset.vim
 	url = git://github.com/EvanDotPro/php_getset.vim.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = git://github.com/shawncplus/phpcomplete.vim.git
