@@ -1,6 +1,3 @@
-[submodule "submodules/Lucius"]
-	path = submodules/Lucius
-	url = git://github.com/vim-scripts/Lucius.git
 [submodule "submodules/vim-pathogen"]
 	path = submodules/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
@@ -49,3 +46,6 @@
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
+[submodule "bundle/Lucius"]
+	path = bundle/Lucius
+	url = git://github.com/vim-scripts/Lucius.git
