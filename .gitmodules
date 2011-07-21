@@ -49,3 +49,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/EvanDotPro/nerdtree.git
+[submodule "bundle/nerdtree-chmod"]
+	path = bundle/nerdtree-chmod
+	url = git://github.com/EvanDotPro/nerdtree-chmod.git
