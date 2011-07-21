@@ -55,3 +55,6 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/vim-php-syntax-check"]
+	path = bundle/vim-php-syntax-check
+	url = git://github.com/EvanDotPro/vim-php-syntax-check.git
