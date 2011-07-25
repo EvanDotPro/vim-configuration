@@ -61,3 +61,6 @@
 [submodule "bundle/vim-zoom"]
 	path = bundle/vim-zoom
 	url = git://github.com/EvanDotPro/vim-zoom.git
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki
