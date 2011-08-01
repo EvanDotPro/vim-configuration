@@ -190,9 +190,9 @@ exec "map ".g:scSelectAll." ggVG"
 let g:user_zen_expandabbr_key = g:scZenCodingExpand
 
 " PHP Docblock generation
-let "inoremap ".g:scGeneratePhpDoc." <ESC>:call PhpDocSingle()<CR>i"
-let "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()"
-let "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()"
+exec "inoremap ".g:scGeneratePhpDoc." <ESC>:call PhpDocSingle()<CR>i"
+exec "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()"
+exec "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()"
 
 " Sudo save (requires you to comment the 'Defaults   requiretty' line in
 " /etc/suoders
@@ -200,8 +200,8 @@ ca w!! w !sudo tee "%" > /dev/null
 map <leader>sw :w!!<CR>
 
 " Toggle the NERD Tree on an off with F6 in normal or insert mode
-exec "inoremap " . g:scToggleNERDTree . " <ESC>:NERDTreeToggle<CR><C-w>li"
-exec "map " . g:scToggleNERDTree . " :NERDTreeToggle<CR><C-w>l:<ESC>"
+exec "inoremap ".g:scToggleNERDTree." <ESC>:NERDTreeToggle<CR><C-w>li"
+exec "map ".g:scToggleNERDTree." :NERDTreeToggle<CR><C-w>l:<ESC>"
 
 " Shortcut to close tab/buffer
 exec "map ".g:scCloseBufferClean." :BW<CR>"
