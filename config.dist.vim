@@ -2,11 +2,24 @@
 " Misc Settings
 "--------------
 
-" Show a column line to help with coding standards
-let g:showColumnMarker = 0
+" DBGp Debugger Port
+let g:debuggerPort = 9001
 
-" At which column to show the line
-let g:columnMarkerCount = 80
+
+"----------
+" Shortcuts
+"----------
+let g:scToggleNERDTree        = '<C-F6>'
+let g:scWriteFile             = '<leader>w'
+let g:scEditVimrc             = '<leader>e'
+let g:scCopyToSysClipboard    = '<leader>c'
+let g:scPasteFromSysClipboard = '<leader>v'
+let g:scSelectAll             = '<C-a>'
+let g:scZenCodingExpand       = '<C-z>'
+let g:scGeneratePhpDoc        = '<C-d>'
+let g:scCloseBufferClean      = '<leader>q'
+let g:scOpenLastClosedBuffer  = '<leader>t'
+
 
 "------------
 " AESTHETICS
@@ -20,6 +33,13 @@ colorscheme lucius
 " Set the font
 set guifont=Anonymous\ Pro\ 11
 "set guifont=Monospace\ 9
+
+" Show a column line to help with coding standards
+let g:showColumnMarker = 0
+
+" At which column to show the line
+let g:columnMarkerCount = 80
+
 
 "-----------------------------
 " File Tree Options (NERDTree)

@@ -149,11 +149,6 @@ map <C-p> :bprev<CR>
 map <C-n> :bnext<CR>
 let g:miniBufExplMapCTabSwitchBufs = 1
 
-" Shortcut to close tab/buffer
-map <leader>q :BW<CR>
-
-" Shortcut to re-open last closed tab
-map <leader>t :BUNDO<CR>
 
 " Confirm when closing unsaved tab
 let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
@@ -161,9 +156,6 @@ let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
 "--------------------------
 " NERDTree Plugin Settings
 "--------------------------
-" Toggle the NERD Tree on an off with F6 in normal or insert mode
-inoremap <F6> <ESC>:NERDTreeToggle<CR><C-w>li
-map <F6> :NERDTreeToggle<CR><C-w>l:<ESC>
 
 " Set the default directory for NERDTree
 autocmd VimEnter * execute "cd" fnameescape(g:startDir)
@@ -182,34 +174,40 @@ let g:NERDTreeMinimalUI=1
 " CUSTOM SHORTCUTS
 "------------------
 " Save file shortcut
-map <leader>w :w!<CR>
+exec "map ".g:scWriteFile." :w!<CR>"
 
 " Edit .vimrc shortcut.
-map <leader>e :e ~/.vim/.vimrc<CR>
+exec "map ".g:scEditVimrc." :e ~/.vim/.vimrc<CR>"
 
 " Easy copy and paste
-map <leader>v		"+gP
-map <leader>c		"+y
+exec "map ".g:scPasteFromSysClipboard." \"+gP"
+exec "map ".g:scCopyToSysClipboard." \"+y"
 
 " Select all text
-map <C-a> ggVG
+exec "map ".g:scSelectAll." ggVG"
 
 " Zen Coding expansion shortcut
-let g:user_zen_expandabbr_key = '<C-z>'
+let g:user_zen_expandabbr_key = g:scZenCodingExpand
 
-inoremap <C-d> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-d> :call PhpDocSingle()<CR>
-vnoremap <C-d> :call PhpDocRange()<CR>
+" PHP Docblock generation
+let "inoremap ".g:scGeneratePhpDoc." <ESC>:call PhpDocSingle()<CR>i"
+let "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()"
+let "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()"
 
 " Sudo save (requires you to comment the 'Defaults   requiretty' line in
 " /etc/suoders
 ca w!! w !sudo tee "%" > /dev/null
 map <leader>sw :w!!<CR>
 
-" Allow users to cleanly override anything they want
-if filereadable(expand("$VIMHOME/override.vim"))
-  source $VIMHOME/override.vim
-endif
+" Toggle the NERD Tree on an off with F6 in normal or insert mode
+exec "inoremap " . g:scToggleNERDTree . " <ESC>:NERDTreeToggle<CR><C-w>li"
+exec "map " . g:scToggleNERDTree . " :NERDTreeToggle<CR><C-w>l:<ESC>"
+
+" Shortcut to close tab/buffer
+exec "map ".g:scCloseBufferClean." :BW<CR>"
+
+" Shortcut to re-open last closed tab
+exec "map ".g:scOpenLastClosedBuffer." :BUNDO<CR>"
 
 "------------------------
 " Auto-Completion Options
@@ -227,3 +225,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Esc to cancel auto-competion, but not leave insert mode
 inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+
+" Allow users to cleanly override anything they want
+if filereadable(expand("$VIMHOME/override.vim"))
+  source $VIMHOME/override.vim
+endif

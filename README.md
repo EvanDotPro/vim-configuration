@@ -14,6 +14,8 @@ Installation Notes
   create an override.vim and put your settings in there. This file is
   .gitignored so you will still be able to pull updates cleanly and not risk
   merge conflicts.
+* To update, run `git pull && git submodule update && git submodule init`. If
+  you get any errors, check config.dist.vim for changes.
 
 Comming soon:
 
