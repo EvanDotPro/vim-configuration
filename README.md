@@ -61,6 +61,8 @@ Current Features
     * Automatic PHP syntax checking when opening/saving PHP files. Syntax error
       details displayed, error line underlined in red curly 'undercurl' format
       and cursor moved to error upon save.
+    * Xdebug / DBGp support (be sure to configure DBGp to listen on a different
+      port than php-fpm's fcgi uses)
 * Easy to configure
     * Simply copy `config.dist.vim` to `config.vim` and set the values.
     * Experienced Vim users can create an `override.vim` file which will
