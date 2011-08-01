@@ -18,12 +18,14 @@ Installation Notes
   you get any errors, check config.dist.vim for changes.
 * For PHP Xdebug support (DBGp), you'll need to enable some Xdebug settings (I
   put these in /etc/php.d/xdebug.ini):
-  [Zend]
-  zend_extension=/usr/lib64/php/modules/xdebug.so
-  xdebug.profiler_enable_trigger = 1
-  xdebug.remote_enable=1
-  xdebug.remote_host=localhost
-  xdebug.remote_port=9001 
+<pre>
+[Zend]
+zend_extension=/usr/lib64/php/modules/xdebug.so
+xdebug.profiler_enable_trigger = 1
+xdebug.remote_enable=1
+xdebug.remote_host=localhost
+xdebug.remote_port=9001
+</pre>
 
 Comming soon:
 
