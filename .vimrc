@@ -191,8 +191,8 @@ let g:user_zen_expandabbr_key = g:scZenCodingExpand
 
 " PHP Docblock generation
 exec "inoremap ".g:scGeneratePhpDoc." <ESC>:call PhpDocSingle()<CR>i"
-exec "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()"
-exec "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()"
+exec "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()<CR>"
+exec "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()<CR>"
 
 " Sudo save (requires you to comment the 'Defaults   requiretty' line in
 " /etc/suoders
