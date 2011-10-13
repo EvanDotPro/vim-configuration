@@ -64,3 +64,6 @@
 [submodule "bundle/DBGp-Remote-Debugger-Interface"]
 	path = bundle/DBGp-Remote-Debugger-Interface
 	url = git://github.com/EvanDotPro/DBGp-Remote-Debugger-Interface.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
