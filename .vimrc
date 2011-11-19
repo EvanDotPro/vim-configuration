@@ -106,6 +106,12 @@ set ttyfast
 " Allow buffers to have unsaved changes
 set hidden
 
+" Fix arrow keys in insert mode in terminal
+imap OA <ESC>ki
+imap OB <ESC>ji
+imap OC <ESC>li
+imap OD <ESC>hi
+
 " Bash-like tab completion for command mode
 set wildmode=list:longest,full
 set wildmenu
