@@ -11,7 +11,6 @@ let g:debuggerPort = 9001
 "----------
 let g:scToggleNERDTree        = '<C-F6>'
 let g:scWriteFile             = '<leader>w'
-let g:scEditVimrc             = '<leader>e'
 let g:scCopyToSysClipboard    = '<leader>c'
 let g:scPasteFromSysClipboard = '<leader>v'
 let g:scSelectAll             = '<C-a>'
@@ -19,6 +18,12 @@ let g:scZenCodingExpand       = '<C-z>'
 let g:scGeneratePhpDoc        = '<C-d>'
 let g:scCloseBufferClean      = '<leader>q'
 let g:scOpenLastClosedBuffer  = '<leader>t'
+
+"
+"----------
+" Usability
+"----------
+let g:mapF1ToEsc = 1 " Map F1 to esc to prevent accidental opening of the help window
 
 
 "------------

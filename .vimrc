@@ -153,6 +153,11 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 " Confirm when closing unsaved tab
 let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
 
+if g:mapF1ToEsc > 0 
+    map <F1> <Esc>
+    imap <F1> <Esc>
+endif
+
 "--------------------------
 " NERDTree Plugin Settings
 "--------------------------
@@ -175,9 +180,6 @@ let g:NERDTreeMinimalUI=1
 "------------------
 " Save file shortcut
 exec "map ".g:scWriteFile." :w!<CR>"
-
-" Edit .vimrc shortcut.
-exec "map ".g:scEditVimrc." :e ~/.vim/.vimrc<CR>"
 
 " Easy copy and paste
 exec "map ".g:scPasteFromSysClipboard." \"+gP"
