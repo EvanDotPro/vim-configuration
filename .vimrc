@@ -211,6 +211,18 @@ exec "map ".g:scCloseBufferClean." :BW<CR>"
 " Shortcut to re-open last closed tab
 exec "map ".g:scOpenLastClosedBuffer." :BUNDO<CR>"
 
+map <M-Up> <Up>
+imap <M-Up> <Up>
+
+map <M-Right> <Right>
+imap <M-Right> <Right>
+
+map <M-Down> <Down>
+imap <M-Down> <Down>
+
+map <M-Left> <Left>
+imap <M-Left> <Left>
+
 "------------------------
 " Auto-Completion Options
 "------------------------
