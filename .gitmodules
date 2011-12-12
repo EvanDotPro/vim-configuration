@@ -37,9 +37,6 @@
 [submodule "bundle/php_getset.vim"]
 	path = bundle/php_getset.vim
 	url = git://github.com/EvanDotPro/php_getset.vim.git
-[submodule "bundle/phpcomplete.vim"]
-	path = bundle/phpcomplete.vim
-	url = git://github.com/shawncplus/phpcomplete.vim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -64,3 +61,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = git://github.com/EvanDotPro/phpcomplete.vim.git
