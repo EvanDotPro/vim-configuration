@@ -5,6 +5,8 @@
 " DBGp Debugger Port
 let g:debuggerPort = 9001
 
+" Should PHP class name auto-completion be case-sensitive?
+let g:php_omni_casesensitive_classes = 1
 
 "----------
 " Shortcuts
