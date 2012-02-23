@@ -41,7 +41,7 @@ Current Features
     * `<leader>q` to close the current focused tab.
     * `<leader>t` to re-open the last closed tab.
 * File tree navigation (via NERDTree)
-    * `<F6>` to toggle file tree on/off.
+    * `<C-F6>` to toggle file tree on/off.
 * Easy shortcuts
     * `<C-a>` to select entire document.
     * `<leader>w` to write current file.
