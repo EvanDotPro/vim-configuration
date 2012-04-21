@@ -82,10 +82,6 @@ let g:gist_detect_filetype = 1
 "let g:gist_open_browser_after_post = 1
 "let g:gist_browser_command = 'firefox %URL% &'
 
-" Set this to your GitHub username and token
-"let g:github_user = 'YourUsername'
-"let g:github_token = 'yourtokengoeshere'
-
 
 "--------------------------------
 " PHP Docblock Generation Options
