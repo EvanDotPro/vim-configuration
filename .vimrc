@@ -132,6 +132,7 @@
     set number                     " Line numbers on
     set cpoptions+=$               " Cool trick to show what you're replacing
     set showmatch                  " show matching brackets/parenthesis
+    set showcmd                    " show multi-key commands as you type
     set incsearch                  " find as you type search
     set hlsearch                   " highlight search terms
     set winminheight=0             " windows can be 0 line high
@@ -220,6 +221,7 @@
         map <C-p> :bprev<CR>
         map <C-n> :bnext<CR>
         let g:miniBufExplMapCTabSwitchBufs = 1 
+        let g:miniBufExplModSelTarget = 1
     " }
 
     " Automatically hide the preview panel
@@ -229,4 +231,71 @@
     " Esc to cancel auto-competion, but not leave insert mode
     inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
+" }
+
+" Functions {
+
+    " Source: http://vim.wikia.com/wiki/VimTip165
+    " Cleanly deletes a buffer without messing up the window layout.
+    " Modified by Evan to prompt for unsaved changes.
+    function s:Kwbd(kwbdStage)
+      if(a:kwbdStage == 1)
+        if(!buflisted(winbufnr(0)))
+          bd!
+          return
+        endif
+        let s:kwbdBufNum = bufnr("%")
+        let s:kwbdWinNum = winnr()
+        windo call s:Kwbd(2)
+        execute s:kwbdWinNum . 'wincmd w'
+        let s:buflistedLeft = 0
+        let s:bufFinalJump = 0
+        let l:nBufs = bufnr("$")
+        let l:i = 1
+        while(l:i <= l:nBufs)
+          if(l:i != s:kwbdBufNum)
+            if(buflisted(l:i))
+              let s:buflistedLeft = s:buflistedLeft + 1
+            else
+              if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
+                let s:bufFinalJump = l:i
+              endif
+            endif
+          endif
+          let l:i = l:i + 1
+        endwhile
+        if(!s:buflistedLeft)
+          if(s:bufFinalJump)
+            windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
+          else
+            enew
+            let l:newBuf = bufnr("%")
+            windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
+          endif
+          execute s:kwbdWinNum . 'wincmd w'
+        endif
+        if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
+          execute ":confirm :bd " . s:kwbdBufNum
+        endif
+        if(!s:buflistedLeft)
+          set buflisted
+          set bufhidden=delete
+          set buftype=
+          setlocal noswapfile
+        endif
+      else
+        if(bufnr("%") == s:kwbdBufNum)
+          let prevbufvar = bufnr("#")
+          if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
+            b #
+          else
+            bn
+          endif
+        endif
+      endif
+    endfunction
+
+    command! Kwbd call s:Kwbd(1)
+    nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+    nmap <silent> <leader>q :Kwbd<CR>
 " }
