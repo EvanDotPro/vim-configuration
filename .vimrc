@@ -82,6 +82,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
+                Bundle 'tpope/vim-markdown'
             endif
 
         " PHP
