@@ -88,6 +88,7 @@
         " PHP
             if count(g:bundle_groups, 'php')
                 Bundle 'spf13/PIV'
+                Bundle 'EvanDotPro/vim-php-syntax-check'
             endif
 
     endif
