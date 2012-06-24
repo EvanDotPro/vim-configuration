@@ -1,0 +1,2 @@
+" This is the path that you want NERDTree to initially display
+let g:startDir = '/path/to/workspace'

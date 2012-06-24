@@ -1,2 +1,1 @@
-config.vim
-override.vim
+config.local.vim

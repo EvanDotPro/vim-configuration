@@ -1,246 +1,232 @@
-" Evan Coury's Vim Configuration
-" http://www.evan.pro/
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-" This configuration is primarily geared towards PHP / web developers, but
-" not by any means limited to such.
+"  _____                ______      _  ______          _
+" |  ___|               |  _  \    | | | ___ \        ( )
+" | |____   ____ _ _ __ | | | |___ | |_| |_/ / __ ___ |/ ___
+" |  __\ \ / / _` | '_ \| | | / _ \| __|  __/ '__/ _ \  / __|
+" | |___\ V / (_| | | | | |/ / (_) | |_| |  | | | (_) | \__ \
+" \____/ \_/ \__,_|_| |_|___/ \___/ \__\_|  |_|  \___/  |___/
+"            _                              __ _
+"           (_)                            / _(_)
+"     __   ___ _ __ ___     ___ ___  _ __ | |_ _  __ _
+"     \ \ / / | '_ ` _ \   / __/ _ \| '_ \|  _| |/ _` |
+"      \ V /| | | | | | | | (_| (_) | | | | | | | (_| |
+"       \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__, |
+"                                                 __/ |
+"                                                |___/
+"
+"   This is the personal vim config of Evan Coury (aka EvanDotPro).
+"
+"   Author: Evan Coury, http://blog.evan.pro/
+"      URL: https://github.com/EvanDotPro/vim-configuration
+"
+"   Special thanks to:
+"
+"    - Steve Francia for spf13-vim (https://github.com/spf13/spf13-vim)
+"    - Marc Weber for Vundle(https://github.com/gmarik/vundle)
+"    - Aleksey Khudyakov (aka Xerkus) for adding git-treeish support to Vundle
+"    - All of the authors of the other amazing Vim plugins I use every day.
+"
+" }
 
-" This needs to come before other stuff (like set showcmd) because it affects
-" various other options.
-set nocompatible
-" Load vim-pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-" TODO: Figure out how to keep plugin tags files cleanly out of Git.
-"call pathogen#helptags()
+" Environment {
+    " Basics {
+        set nocompatible                   " Use ViMproved, don't emulate old vi
+        let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
+    " }
 
-if filereadable(expand("$VIMHOME/config.vim"))
-  source $VIMHOME/config.vim
-else
-  redraw
-  echomsg "Vim Config Error: Could not load config.vim. Did you copy config.dist.vim to config.vim?"
-endif
+    " Vundle {
+        filetype off " Turned back on after loading bundles 
+        set rtp+=$VIMHOME/bundle/vundle
+        call vundle#rc()
+        Bundle 'EvanDotPro/vundle', 'feature/refactor-git-treeish-support', {'local': 1}
+    " }
 
-"------------
-" AESTHETICS
-"------------
-" Let Vim know the terminal can handle 256 colors
-set t_Co=256
+    " Local Configuration {
+        if filereadable(expand("$VIMHOME/config.local.vim"))
+            source $VIMHOME/config.local.vim
+        endif
+    " }
+" }
 
-" Make command line two lines high
-set ch=2
+" Bundles {
+"
 
-" Set the status line the way I like it
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]\ %=%{fugitive#statusline()}
-
-" Always put a status line in, even if there is only one window
-set laststatus=2
-
-" Clean up the GUI in Gvim
-if has("gui_running")
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions+=LlRrb " bug?
-  set guioptions-=LlRrb
-endif
-
-" Cool trick to show what you're replacing/changing
-set cpoptions+=$
-
-" Allow the cursor to go into 'invalid' places
-set virtualedit=all
-
-" Show line numbers
-set number
-
-" Highlight the current line
-set cursorline
-
-" This shows you what you're doing in a multi-stroke command
-set showcmd
-
-"--------------
-" Coding Style
-"--------------
-set expandtab
-set textwidth=80
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smartindent
-syntax on
-filetype plugin on
-filetype plugin indent on
-
-if g:showColumnMarker > 0
-  if exists('+colorcolumn')
-    set colorcolumn=g:columnMarkerCount
-  endif
-endif
-
-"--------------
-" PHP-Specific
-"--------------
-autocmd BufNewFile,BufRead *.phtml set ft=php
-
-"---------------
-" MISC SETTINGS
-"---------------
-" Turn off backup stuff
-set nobackup
-set nowb
-set noswapfile
-
-" Shortcut for arbitrary git commands
-autocmd VimEnter * Alias git Git
-
-" Incremental search?
-set incsearch
-
-" Case-insensitive search by default
-set ignorecase
-set smartcase
-
-" Fast redraw
-set ttyfast
-
-" Allow buffers to have unsaved changes
-set hidden
-
-" Bash-like tab completion for command mode
-set wildmode=list:longest,full
-set wildmenu
-
-" Allow mouse support in terminal Vim
-set mouse=a
-" If we have any issues with mouse support in screen, try this:
-"termcapinfo linux|xterm|screen* ti@:te@:XT
-
-" Disable the stupid blinking cursor
-:set guicursor+=a:blinkon0
-
-" Disable middle-click paste (causes too many accidents with crappy mice)
-map <MiddleMouse> <Nop>
-imap <MiddleMouse> <Nop>
-map <2-MiddleMouse> <Nop>
-imap <2-MiddleMouse> <Nop>
-map <3-MiddleMouse> <Nop>
-imap <3-MiddleMouse> <Nop>
-map <4-MiddleMouse> <Nop>
-imap <4-MiddleMouse> <Nop>
-
-"------------------
-" MiniBufExplorer
-"------------------
-" make tabs show complete (no broken on two lines)
-let g:miniBufExplTabWrap = 1
-
-" If you would like to single click on tabs rather than double clicking on them to goto the selected buffer.
-let g:miniBufExplUseSingleClick = 1
-
-" <max lines: defualt 0> setting this to 0 will mean the window gets as big as needed to fit all your buffers.
-let g:miniBufExplMaxSize = 3
-
-" Do not allow files to accidentally get opened in the NERDTree or other
-" non-modifiable buffers.
-let g:miniBufExplModSelTarget = 1
-
-" Shortcuts for switching tabs/buffers
-map <C-p> :bprev<CR>
-map <C-n> :bnext<CR>
-let g:miniBufExplMapCTabSwitchBufs = 1
+    " You can define just the groups you need in your config.local.vim
+    if !exists('g:bundle_groups')
+        let g:bundle_groups=['general', 'themes', 'programming', 'php']
+    endif
 
 
-" Confirm when closing unsaved tab
-let g:BufKillActionWhenModifiedFileToBeKilled = 'confirm'
+    if !exists('g:override_bundles')
 
-if g:mapF1ToEsc > 0 
-    map <F1> <Esc>
-    imap <F1> <Esc>
-endif
+        " General
+            if count(g:bundle_groups, 'general')
+                Bundle 'scrooloose/nerdtree', '4.2.0'
+                Bundle 'kien/ctrlp.vim'
+                Bundle 'Lokaltog/vim-powerline', 'develop'
+                Bundle 'fholgado/minibufexpl.vim', '6.4.4'
+            endif
 
-"--------------------------
-" NERDTree Plugin Settings
-"--------------------------
+        " Themes
+            if count(g:bundle_groups, 'themes')
+                Bundle 'Lucius', '7.1.1'
+                Bundle 'altercation/vim-colors-solarized'
+                Bundle 'spf13/vim-colors'
+            endif
 
-" Set the default directory for NERDTree
-autocmd VimEnter * execute "cd" fnameescape(g:startDir)
+        " General Programming
+            if count(g:bundle_groups, 'programming')
+                Bundle 'tpope/vim-fugitive'
+                Bundle 'godlygeek/tabular'
+                Bundle 'mattn/webapi-vim'
+                Bundle 'mattn/gist-vim'
+            endif
 
-" Enable NERDTree
-if g:openTreeOnStart > 0
-    autocmd VimEnter * NERDTree
-endif
+        " PHP
+            if count(g:bundle_groups, 'php')
+                Bundle 'spf13/PIV'
+            endif
 
-" Focus the editor buffer
-autocmd VimEnter * wincmd p
+    endif
 
-let g:NERDTreeMinimalUI=1
 
-"------------------
-" CUSTOM SHORTCUTS
-"------------------
-" Save file shortcut
-exec "map ".g:scWriteFile." :w!<CR>"
+" }
 
-" Easy copy and paste
-exec "map ".g:scPasteFromSysClipboard." \"+gP"
-exec "map ".g:scCopyToSysClipboard." \"+y"
+" General {
 
-" Select all text
-exec "map ".g:scSelectAll." ggVG"
+    filetype plugin indent on " Automatically detect file types.
+    syntax on                 " syntax highlighting
+    set mouse=a               " automatically enable mouse usage
+    set virtualedit=onemore   " allow for cursor beyond last character
+    set history=1000          " Store a ton of history (default is 20)
+    set hidden                " allow buffer switching without saving
+    scriptencoding utf-8
+    set encoding=utf-8
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    autocmd VimEnter * execute "cd" fnameescape(g:startDir)
 
-" Zen Coding expansion shortcut
-let g:user_zen_expandabbr_key = g:scZenCodingExpand
+" }
 
-" PHP Docblock generation
-exec "inoremap ".g:scGeneratePhpDoc." <ESC>:call PhpDocSingle()<CR>i"
-exec "nnoremap ".g:scGeneratePhpDoc." :call PhpDocSingle()<CR>"
-exec "vnoremap ".g:scGeneratePhpDoc." :call PhpDocRange()<CR>"
+" Vim UI {
 
-" Sudo save (requires you to comment the 'Defaults   requiretty' line in
-" /etc/suoders
-ca w!! w !sudo tee "%" > /dev/null
-map <leader>sw :w!!<CR>
+    set shortmess+=I                       " Disable splash text
+    set t_Co=256                           " Fix colors in the terminal
+    color lucius                           " Vim colorscheme
+    let g:Powerline_colorscheme = 'lucius' " Powerline colorscheme
+    set laststatus=2                       " Always show status bar
+    set mousemodel=popup                   " Enable context menu
 
-" Toggle the NERD Tree on an off with F6 in normal or insert mode
-exec "inoremap ".g:scToggleNERDTree." <ESC>:NERDTreeToggle<CR><C-w>li"
-exec "map ".g:scToggleNERDTree." :NERDTreeToggle<CR><C-w>l:<ESC>"
+    " Clean up the GUI in Gvim
+    if has("gui_running")
+        set guioptions-=T
+        set guioptions-=m
+        set guioptions+=LlRrb " bug?
+        set guioptions-=LlRrb
+        set guioptions+=r
+    endif
 
-" Shortcut to close tab/buffer
-exec "map ".g:scCloseBufferClean." :BW<CR>"
+    set backspace=indent,eol,start " backspace for dummies
+    set linespace=0                " No extra spaces between rows
+    set number                     " Line numbers on
+    set cpoptions+=$               " Cool trick to show what you're replacing
+    set showmatch                  " show matching brackets/parenthesis
+    set incsearch                  " find as you type search
+    set hlsearch                   " highlight search terms
+    set winminheight=0             " windows can be 0 line high
+    set ignorecase                 " case insensitive search
+    set smartcase                  " case sensitive when uc present
+    set wildmenu                   " show list instead of just completing
+    set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all.
+    set scrolljump=5               " lines to scroll when cursor leaves screen
+    set scrolloff=3                " minimum lines to keep above and below cursor
+    set foldenable                 " auto fold code
+    set list                       " Use the listchars settings
+    set listchars=tab:▸\           " Highlight problematic whitespace
 
-" Shortcut to re-open last closed tab
-exec "map ".g:scOpenLastClosedBuffer." :BUNDO<CR>"
+" }
 
-map <M-Up> <Up>
-imap <M-Up> <Up>
+" Formatting {   
 
-map <M-Right> <Right>
-imap <M-Right> <Right>
+    "set nowrap        " wrap long lines
+    set autoindent    " indent at the same level of the previous line
+    set shiftwidth=4  " use indents of 4 spaces
+    set expandtab     " tabs are spaces, not tabs
+    set tabstop=4     " an indentation every four columns
+    set softtabstop=4 " let backspace delete indent
+    " Remove trailing whitespaces and ^M chars
+    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,phtml,vimrc autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" }
 
-map <M-Down> <Down>
-imap <M-Down> <Down>
+" Key (re)Mappings {
 
-map <M-Left> <Left>
-imap <M-Left> <Left>
+    "The default leader is '\', but many people prefer ','
+    let mapleader = ','
 
-"------------------------
-" Auto-Completion Options
-"------------------------
-" Tab for auto-complete
-let g:SuperTabDefaultCompletionType = '<C-x><C-o>'
+    " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
+    nnoremap ; :
 
-" This makes auto-completion only insert the longest common text among all
-" matches in the list (like bash).
-set completeopt=longest,menuone,preview
+    " Easier moving in tabs and windows
+    map <C-J> <C-W>j<C-W>_
+    map <C-K> <C-W>k<C-W>_
+    map <C-L> <C-W>l<C-W>_
+    map <C-H> <C-W>h<C-W>_
 
-" Automatically hide the preview panel
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    " Wrapped lines goes down/up to next row, rather than next line in file.
+    nnoremap j gj
+    nnoremap k gk
 
-" Esc to cancel auto-competion, but not leave insert mode
-inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+    " Yank from the cursor to the end of the line, to be consistent with C and D.
+    nnoremap Y y$
 
-" Allow users to cleanly override anything they want
-if filereadable(expand("$VIMHOME/override.vim"))
-  source $VIMHOME/override.vim
-endif
+    """ Code folding options
+    nmap <leader>f0 :set foldlevel=0<CR>
+    nmap <leader>f1 :set foldlevel=1<CR>
+    nmap <leader>f2 :set foldlevel=2<CR>
+    nmap <leader>f3 :set foldlevel=3<CR>
+    nmap <leader>f4 :set foldlevel=4<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f6 :set foldlevel=6<CR>
+    nmap <leader>f7 :set foldlevel=7<CR>
+    nmap <leader>f8 :set foldlevel=8<CR>
+    nmap <leader>f9 :set foldlevel=9<CR>
+
+    "clearing highlighted search
+    nmap <silent> <leader>/ :nohlsearch<CR>
+
+    " For when you forget to sudo.. Really Write the file.
+    cmap w!! w !sudo tee % >/dev/null
+" }
+
+" Plugins {
+
+    " NerdTree {
+        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        map <leader>e :NERDTreeFind<CR>
+        nmap <leader>nt :NERDTreeFind<CR>
+
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.hg', '\.svn', '\.bzr']
+        let NERDTreeChDirMode=0
+        let NERDTreeQuitOnOpen=1
+        let NERDTreeShowHidden=1
+        let NERDTreeKeepTreeInNewTab=1
+        let NERDTreeMinimalUI=1
+    " }
+
+    " MiniBufExplorer {
+        " Shortcuts for switching tabs/buffers
+        map <C-p> :bprev<CR>
+        map <C-n> :bnext<CR>
+        let g:miniBufExplMapCTabSwitchBufs = 1 
+    " }
+
+    " Automatically hide the preview panel
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+    " Esc to cancel auto-competion, but not leave insert mode
+    inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+
+" }
