@@ -49,7 +49,7 @@
             source $VIMHOME/config.local.vim
         endif
     " }
-    "
+
 " }
 
 " Bundles {
@@ -316,4 +316,10 @@
     nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
     nmap <silent> <leader>q :Kwbd<CR>
 
+" }
+
+" Local Override {
+    if filereadable(expand("$VIMHOME/override.local.vim"))
+        source $VIMHOME/override.local.vim
+    endif
 " }
