@@ -31,6 +31,7 @@
 " }
 
 " Environment {
+"
     " Basics {
         set nocompatible                   " Use ViMproved, don't emulate old vi
         let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
@@ -48,10 +49,10 @@
             source $VIMHOME/config.local.vim
         endif
     " }
+    "
 " }
 
 " Bundles {
-"
 
     " You can define just the groups you need in your config.local.vim
     if !exists('g:bundle_groups')
@@ -66,7 +67,9 @@
                 Bundle 'scrooloose/nerdtree', '4.2.0'
                 Bundle 'kien/ctrlp.vim'
                 Bundle 'Lokaltog/vim-powerline', 'develop'
-                Bundle 'fholgado/minibufexpl.vim', '6.4.4'
+                "Bundle 'fholgado/minibufexpl.vim', '6.4.4'
+                Bundle 'L9', '1.1'
+                Bundle 'FuzzyFinder', '4.2.2'
             endif
 
         " Themes
@@ -115,6 +118,7 @@
 
     set shortmess+=I                       " Disable splash text
     set t_Co=256                           " Fix colors in the terminal
+    set guifont=Anonymous\ Pro\ 11         " Way better than monospace
     color lucius                           " Vim colorscheme
     let g:Powerline_colorscheme = 'lucius' " Powerline colorscheme
     set laststatus=2                       " Always show status bar
@@ -130,8 +134,8 @@
     endif
 
     set backspace=indent,eol,start " backspace for dummies
-    set linespace=0                " No extra spaces between rows
-    set number                     " Line numbers on
+    set linespace=0                " no extra spaces between rows
+    set number                     " line numbers on
     set cpoptions+=$               " Cool trick to show what you're replacing
     set showmatch                  " show matching brackets/parenthesis
     set showcmd                    " show multi-key commands as you type
@@ -144,9 +148,8 @@
     set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all.
     set scrolljump=5               " lines to scroll when cursor leaves screen
     set scrolloff=3                " minimum lines to keep above and below cursor
-    set foldenable                 " auto fold code
-    set list                       " Use the listchars settings
-    set listchars=tab:▸\           " Highlight problematic whitespace
+    set list                       " use the listchars settings
+    set listchars=tab:▸\           " highlight problematic whitespace
 
 " }
 
@@ -160,12 +163,10 @@
     set softtabstop=4 " let backspace delete indent
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,phtml,vimrc autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
 " }
 
 " Key (re)Mappings {
-
-    "The default leader is '\', but many people prefer ','
-    let mapleader = ','
 
     " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
     nnoremap ; :
@@ -183,7 +184,7 @@
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-    """ Code folding options
+    " Code folding options
     nmap <leader>f0 :set foldlevel=0<CR>
     nmap <leader>f1 :set foldlevel=1<CR>
     nmap <leader>f2 :set foldlevel=2<CR>
@@ -195,11 +196,25 @@
     nmap <leader>f8 :set foldlevel=8<CR>
     nmap <leader>f9 :set foldlevel=9<CR>
 
-    "clearing highlighted search
+    " Clearing highlighted search
     nmap <silent> <leader>/ :nohlsearch<CR>
+
+    " One less key-stroke for save
+    nmap <silent> <leader>w :w<CR>
+
+    " Easier copy/paste
+    nmap <silent> <leader>v "+gP
+    nmap <silent> <leader>c "+y
+
+    " Ctrl-a for select all
+    map <C-A> ggVG
+
+    " Ctrl-b for fuzzy-buffer match
+    map <C-B> :FufBuffer<CR>
 
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
+
 " }
 
 " Plugins {
@@ -300,4 +315,5 @@
     command! Kwbd call s:Kwbd(1)
     nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
     nmap <silent> <leader>q :Kwbd<CR>
+
 " }
