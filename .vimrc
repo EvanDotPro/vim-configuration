@@ -203,8 +203,8 @@
     nmap <silent> <leader>w :w<CR>
 
     " Easier copy/paste
-    nmap <silent> <leader>v "+gP
-    nmap <silent> <leader>c "+y
+    map <leader>v "+gP
+    map <leader>c "+y
 
     " Ctrl-a for select all
     map <C-A> ggVG
