@@ -1,5 +1,5 @@
-My Ultimate Vim Configuration
-=============================
+# My Ultimate Vim Configuration
+
 Version 1.0.0 Created by Evan Coury
 
 ```
@@ -19,8 +19,8 @@ Version 1.0.0 Created by Evan Coury
                                                 |___/
 ```
 
-Introduction
-------------
+## Introduction
+
 This is the personal vim config of Evan Coury (aka EvanDotPro).
 
 Author: Evan Coury, http://blog.evan.pro/
@@ -32,3 +32,24 @@ Special thanks to:
 - Marc Weber for [Vundle](https://github.com/gmarik/vundle)
 - [Aleksey Khudyakov](https://github.com/Xerkus) (aka Xerkus) for adding git-treeish support to Vundle
 - All of the authors of the other amazing Vim plugins I use every day.
+
+## Plugins
+
+* **General**
+    - [NERDTree](https://github.com/scrooloose/nerdtree)
+    - [ctrlp.vim](https://github.com/kien/ctrlp.vim)
+    - [Powerline](https://github.com/Lokaltog/vim-powerline)
+    - [minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim)
+    - [FuzzyFinder](https://github.com/vim-scripts/FuzzyFinder) (and dependency [L9](https://github.com/vim-scripts/L9))
+* **Themes**
+    - [Lucius](https://github.com/vim-scripts/Lucius)
+    - [Solarized]()
+
+(TODO: Finish this list)
+
+## Installation
+
+* Clone recursive, symlink .vimrc
+* Run `vim +BundleInstall +qall`
+
+(TODO: Better instructions)
