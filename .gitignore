@@ -1,1 +1,5 @@
 config.local.vim
+.backup
+.swap
+.undo
+.views

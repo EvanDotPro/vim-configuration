@@ -31,7 +31,7 @@
 " }
 
 " Environment {
-"
+
     " Basics {
         set nocompatible                   " Use ViMproved, don't emulate old vi
         let $VIMHOME = split(&rtp, ',')[0] " Find the Vim path
@@ -104,7 +104,7 @@
     filetype plugin indent on " Automatically detect file types.
     syntax on                 " syntax highlighting
     set mouse=a               " automatically enable mouse usage
-    set virtualedit=onemore   " allow for cursor beyond last character
+    set virtualedit=all       " allow for cursor beyond last character
     set history=1000          " Store a ton of history (default is 20)
     set hidden                " allow buffer switching without saving
     scriptencoding utf-8
@@ -130,13 +130,12 @@
         set guioptions-=m
         set guioptions+=LlRrb " bug?
         set guioptions-=LlRrb
-        set guioptions+=r
     endif
 
     set backspace=indent,eol,start " backspace for dummies
     set linespace=0                " no extra spaces between rows
     set number                     " line numbers on
-    set cpoptions+=$               " Cool trick to show what you're replacing
+    set cpoptions+=$               " cool trick to show what you're replacing
     set showmatch                  " show matching brackets/parenthesis
     set showcmd                    " show multi-key commands as you type
     set incsearch                  " find as you type search
@@ -149,7 +148,7 @@
     set scrolljump=5               " lines to scroll when cursor leaves screen
     set scrolloff=3                " minimum lines to keep above and below cursor
     set list                       " use the listchars settings
-    set listchars=tab:▸\           " highlight problematic whitespace
+    set listchars=tab:▸\           " show tabs
 
 " }
 
@@ -220,12 +219,11 @@
 " Plugins {
 
     " NerdTree {
-        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        map <C-e> :NERDTreeToggle<CR>
         map <leader>e :NERDTreeFind<CR>
         nmap <leader>nt :NERDTreeFind<CR>
 
         let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
         let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=1
@@ -315,6 +313,50 @@
     command! Kwbd call s:Kwbd(1)
     nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
     nmap <silent> <leader>q :Kwbd<CR>
+
+    " Put all swap, backup, and view files in a central location
+    " Source: spf-13-vim (https://github.com/spf13/spf13-vim/blob/4f01f8f7a35736fc106a1735e076a83ac548e104/.vimrc#L552)
+    " Modified by Evan to better handle swap file paths for editing multiple
+    " files with the same filename.
+    function! InitializeDirectories()
+        let parent = $VIMHOME
+        let prefix = '.'
+        let dir_list = {
+                    \ 'backup': 'backupdir',
+                    \ 'views': 'viewdir',
+                    \ 'swap': 'directory' }
+
+        if has('persistent_undo')
+            let dir_list['undo'] = 'undodir'
+        endif
+
+        for [dirname, settingname] in items(dir_list)
+            let directory = parent . '/' . prefix . dirname . '/'
+            if exists('*mkdir')
+                if !isdirectory(directory)
+                    call mkdir(directory)
+                endif
+            endif
+            if !isdirectory(directory)
+                echo 'Warning: Unable to create backup directory: ' . directory
+                echo 'Try: mkdir -p ' . directory
+            else
+                let directory = substitute(directory, " ", "\\\\ ", 'g')
+                " add trailing slashes to name swap files with full path
+                exec 'set ' . settingname . '^=' . directory . '//'
+            endif
+        endfor
+    endfunction
+    call InitializeDirectories()
+
+    " Highlight trailing whitespace in red
+    " Source: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
 
 " }
 
