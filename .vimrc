@@ -65,6 +65,7 @@
         " General
             if count(g:bundle_groups, 'general')
                 Bundle 'scrooloose/nerdtree', '4.2.0'
+                Bundle 'EvanDotPro/nerdtree-symlink'
                 Bundle 'kien/ctrlp.vim'
                 Bundle 'Lokaltog/vim-powerline', 'develop'
                 "Bundle 'fholgado/minibufexpl.vim', '6.4.4'
@@ -90,7 +91,8 @@
 
         " PHP
             if count(g:bundle_groups, 'php')
-                Bundle 'spf13/PIV'
+                Bundle 'StanAngeloff/php.vim'
+                Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
                 Bundle 'EvanDotPro/vim-php-syntax-check'
             endif
 
