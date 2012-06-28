@@ -86,6 +86,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
+                Bundle 'mattn/zencoding-vim'
                 Bundle 'tpope/vim-markdown'
             endif
 
@@ -242,6 +243,10 @@
         map <C-n> :bnext<CR>
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplModSelTarget = 1
+    " }
+    
+    " ZenCoding-vim {
+        map <C-z> <C-y>,
     " }
 
     " Automatically hide the preview panel
