@@ -172,6 +172,9 @@
     " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
     nnoremap ; :
 
+    " Map F1 to Esc to prevent accidental opening of the help window
+    let g:mapF1ToEsc = 1
+
     " Easier moving in tabs and windows
     map <C-J> <C-W>j<C-W>_
     map <C-K> <C-W>k<C-W>_
