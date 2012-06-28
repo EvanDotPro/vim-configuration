@@ -1,4 +1,5 @@
 config.local.vim
+override.local.vim
 .backup
 .swap
 .undo
