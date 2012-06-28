@@ -38,7 +38,7 @@
     " }
 
     " Vundle {
-        filetype off " Turned back on after loading bundles 
+        filetype off " Turned back on after loading bundles
         set rtp+=$VIMHOME/bundle/vundle
         call vundle#rc()
         Bundle 'EvanDotPro/vundle', 'feature/refactor-git-treeish-support', {'local': 1}
@@ -154,7 +154,7 @@
 
 " }
 
-" Formatting {   
+" Formatting {
 
     "set nowrap        " wrap long lines
     set autoindent    " indent at the same level of the previous line
@@ -237,7 +237,7 @@
         " Shortcuts for switching tabs/buffers
         map <C-p> :bprev<CR>
         map <C-n> :bnext<CR>
-        let g:miniBufExplMapCTabSwitchBufs = 1 
+        let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplModSelTarget = 1
     " }
 
@@ -245,7 +245,7 @@
     autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-    " Esc to cancel auto-competion, but not leave insert mode
+    " Esc to cancel auto-completion, but not leave insert mode
     inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " }
