@@ -219,6 +219,7 @@
 
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
+    nmap <silent> <leader>www :w!!<CR>
 
 " }
 
@@ -244,7 +245,7 @@
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplModSelTarget = 1
     " }
-    
+
     " ZenCoding-vim {
         map <C-z> <C-y>,
     " }
