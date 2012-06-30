@@ -221,6 +221,11 @@
     cmap w!! w !sudo tee % >/dev/null
     nmap <silent> <leader>www :w!!<CR>
 
+    " Support buffer switch on tab even if MiniBufExplorer is not used
+    if !vundle#hasBundle('minibufexpl') && has("gui_running")
+        noremap <C-TAB>   :bnext<CR>
+        noremap <C-S-TAB> :bprev<CR>
+    endif
 " }
 
 " Plugins {
