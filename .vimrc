@@ -86,6 +86,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
+                Bundle 'mattn/zencoding-vim'
                 Bundle 'tpope/vim-markdown'
             endif
 
@@ -172,6 +173,10 @@
     " Making it so ; works like : for commands. Saves typing and eliminates :W style typos due to lazy holding shift.
     nnoremap ; :
 
+    " Map F1 to Esc to prevent accidental opening of the help window
+    map  <F1> <Esc>
+    imap <F1> <Esc>
+
     " Easier moving in tabs and windows
     map <C-J> <C-W>j<C-W>_
     map <C-K> <C-W>k<C-W>_
@@ -215,7 +220,13 @@
 
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
+    nmap <silent> <leader>www :w!!<CR>
 
+    " Support buffer switch on tab even if MiniBufExplorer is not used
+    if !vundle#hasBundle('minibufexpl') && has("gui_running")
+        noremap <C-TAB>   :bnext<CR>
+        noremap <C-S-TAB> :bprev<CR>
+    endif
 " }
 
 " Plugins {
@@ -239,6 +250,10 @@
         map <C-n> :bnext<CR>
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplModSelTarget = 1
+    " }
+
+    " ZenCoding-vim {
+        map <C-z> <C-y>,
     " }
 
     " Automatically hide the preview panel
