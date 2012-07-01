@@ -174,7 +174,8 @@
     nnoremap ; :
 
     " Map F1 to Esc to prevent accidental opening of the help window
-    let g:mapF1ToEsc = 1
+    map  <F1> <Esc>
+    imap <F1> <Esc>
 
     " Easier moving in tabs and windows
     map <C-J> <C-W>j<C-W>_
