@@ -218,6 +218,9 @@
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
 
+    " Toggle numbers.vim
+    nnoremap <F3> :NumbersToggle<CR>
+
 " }
 
 " Plugins {
