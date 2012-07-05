@@ -66,9 +66,10 @@
             if count(g:bundle_groups, 'general')
                 Bundle 'scrooloose/nerdtree', '4.2.0'
                 Bundle 'EvanDotPro/nerdtree-symlink'
+                "Bundle 'EvanDotPro/nerdtree-chmod'
+                Bundle 'myusuf3/numbers.vim'
                 Bundle 'kien/ctrlp.vim'
                 Bundle 'Lokaltog/vim-powerline', 'develop'
-                "Bundle 'fholgado/minibufexpl.vim', '6.4.4'
                 Bundle 'L9', '1.1'
                 Bundle 'FuzzyFinder', '4.2.2'
             endif
@@ -93,11 +94,12 @@
             if count(g:bundle_groups, 'php')
                 Bundle 'StanAngeloff/php.vim'
                 Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
-                Bundle 'EvanDotPro/vim-php-syntax-check'
+                "Bundle 'EvanDotPro/vim-php-syntax-check'
+                Bundle 'scrooloose/syntastic', '2.2.0'
+                Bundle 'EvanDotPro/php_getset.vim'
             endif
 
     endif
-
 
 " }
 
@@ -233,12 +235,8 @@
         let NERDTreeMinimalUI=1
     " }
 
-    " MiniBufExplorer {
-        " Shortcuts for switching tabs/buffers
-        map <C-p> :bprev<CR>
-        map <C-n> :bnext<CR>
-        let g:miniBufExplMapCTabSwitchBufs = 1
-        let g:miniBufExplModSelTarget = 1
+    " vim-gist {
+        let g:gist_show_privates = 0
     " }
 
     " Automatically hide the preview panel
