@@ -89,6 +89,7 @@
                 Bundle 'mattn/gist-vim'
                 Bundle 'mattn/zencoding-vim'
                 Bundle 'tpope/vim-markdown'
+                Bundle 'scrooloose/syntastic', '2.2.0'
             endif
 
         " PHP
@@ -96,7 +97,6 @@
                 Bundle 'StanAngeloff/php.vim'
                 Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
                 "Bundle 'EvanDotPro/vim-php-syntax-check'
-                Bundle 'scrooloose/syntastic', '2.2.0'
                 Bundle 'EvanDotPro/php_getset.vim'
             endif
 
