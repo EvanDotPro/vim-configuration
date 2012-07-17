@@ -222,7 +222,7 @@
 
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
-    nmap <silent> <leader>www :w!!<CR>
+    "nmap <silent> <leader>www :w!!<CR> " this causes a nasty delay before saving
 
     " Toggle numbers.vim
     nnoremap <F3> :NumbersToggle<CR>
