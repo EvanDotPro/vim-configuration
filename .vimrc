@@ -256,14 +256,6 @@
     " ZenCoding-vim {
         map <C-z> <C-y>,
     " }
-
-    " Automatically hide the preview panel
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-    " Esc to cancel auto-completion, but not leave insert mode
-    inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-
 " }
 
 " Functions {
