@@ -65,6 +65,7 @@
         " General
             if count(g:bundle_groups, 'general')
                 Bundle 'scrooloose/nerdtree', '4.2.0'
+                Bundle 'EvanDotPro/vim-zoom'
                 Bundle 'EvanDotPro/nerdtree-symlink'
                 "Bundle 'EvanDotPro/nerdtree-chmod'
                 Bundle 'myusuf3/numbers.vim'
