@@ -89,3 +89,15 @@ If you want to customize the config, you should not need to fork and/or make cha
     - [gist-vim](https://github.com/mattn/gist-vim) (and dependency [webapi-vim](https://github.com/mattn/webapi-vim))
 
 (TODO: There's more -- I need to finish this list)
+
+## Misc Tips
+
+#### Make the GTK background for GVIM match Vim background color
+In `~/.gtkrc-2.0` put the following:
+```
+style "vimfix" {
+  bg[NORMAL] = "#303030" # this matches my gVim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
+```
+(This still works with Gnome-shell and GTK3, because GVIM is using GTK2 still.
