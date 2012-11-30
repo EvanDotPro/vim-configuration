@@ -99,6 +99,7 @@
                 Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
                 "Bundle 'EvanDotPro/vim-php-syntax-check'
                 Bundle 'EvanDotPro/php_getset.vim'
+                Bundle 'mikehaertl/pdv-standalone'
             endif
 
     endif
@@ -233,6 +234,13 @@
         noremap <C-TAB>   :bnext<CR>
         noremap <C-S-TAB> :bprev<CR>
     endif
+
+    " ZenCoding-vim
+        map <C-z> <C-y>,
+
+    " pdv-standalone
+    nnoremap <C-\>p :call PhpDocSingle()<CR>
+    vnoremap <C-\>p :call PhpDocRange()<CR>
 " }
 
 " Plugins {
@@ -254,9 +262,16 @@
         let g:gist_show_privates = 0
     " }
 
-    " ZenCoding-vim {
-        map <C-z> <C-y>,
+    " pdv-standalone {
+        " use "" as parameter to turn tag off
+        let g:pdv_cfg_php4guess=0
+        let g:pdv_cfg_Package=" "
+        let g:pdv_cfg_Author=" "
+        let g:pdv_cfg_Version=" "
+        "let g:pdv_cfg_Copyright=""
+        "let g:pdv_cfg_License=""
     " }
+
 " }
 
 " Functions {
