@@ -156,6 +156,9 @@
     set scrolloff=3                " minimum lines to keep above and below cursor
     set list                       " use the listchars settings
     set listchars=tab:▸\           " show tabs
+    set colorcolumn=81
+    "color is for lucius dark
+    hi ColorColumn guibg=#292929
 
 " }
 
