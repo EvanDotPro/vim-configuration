@@ -64,15 +64,14 @@
 
         " General
             if count(g:bundle_groups, 'general')
-                Bundle 'scrooloose/nerdtree', '4.2.0'
+                Bundle 'scrooloose/nerdtree'
                 Bundle 'EvanDotPro/vim-zoom'
                 Bundle 'EvanDotPro/nerdtree-symlink'
-                "Bundle 'EvanDotPro/nerdtree-chmod'
-                Bundle 'myusuf3/numbers.vim'
                 Bundle 'kien/ctrlp.vim'
                 Bundle 'Lokaltog/vim-powerline', 'develop'
                 Bundle 'L9', '1.1'
                 Bundle 'FuzzyFinder', '4.2.2'
+                Bundle 'terryma/vim-multiple-cursors'
             endif
 
         " Themes
@@ -85,19 +84,19 @@
         " General Programming
             if count(g:bundle_groups, 'programming')
                 Bundle 'tpope/vim-fugitive'
+                Bundle 'airblade/vim-gitgutter'
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
                 Bundle 'mattn/zencoding-vim'
                 Bundle 'tpope/vim-markdown'
-                Bundle 'scrooloose/syntastic', '2.2.0'
+                Bundle 'scrooloose/syntastic', '3.0.0'
             endif
 
         " PHP
             if count(g:bundle_groups, 'php')
                 Bundle 'StanAngeloff/php.vim'
                 Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
-                "Bundle 'EvanDotPro/vim-php-syntax-check'
                 Bundle 'EvanDotPro/php_getset.vim'
                 Bundle 'mikehaertl/pdv-standalone'
             endif
@@ -126,7 +125,7 @@
     set shortmess+=I                       " Disable splash text
     set t_Co=256                           " Fix colors in the terminal
     set guifont=Anonymous\ Pro\ 11         " Way better than monospace
-    color lucius                           " Vim colorscheme
+    silent color lucius                    " Vim colorscheme
     let g:Powerline_colorscheme = 'lucius' " Powerline colorscheme
     set laststatus=2                       " Always show status bar
     set mousemodel=popup                   " Enable context menu

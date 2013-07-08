@@ -36,11 +36,19 @@ Special thanks to:
 ## Installation (Linux & Mac)
 
 - If you have an existing vim configuration, back it up:
-    - `for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv $i $i.\`date +%Y%m%d\`; done`
+    - ``for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv $i $i.`date +%Y%m%d`; done``
 - `git clone --recursive https://github.com/EvanDotPro/vim-configuration.git $HOME/edp-vim`
 - `ln -s $HOME/edp-vim $HOME/.vim`
 - `ln -s $HOME/edp-vim/.vimrc $HOME/.vimrc`
-- `vim +BundleInstall! +BundleClean +q`
+- `vim +BundleInstall! +BundleClean +q` (You may see some errors about colorscheme or other things, just hit enter and ignore them.)
+- Copy `config.local.vim.dist` to `config.local.vim` and set your base workspace directory.
+- Create an `override.local.vim` to override settings such as fonts and stuff.
+
+```vim
+" Example override.local.vim
+let g:Powerline_symbols = 'fancy'
+set guifont=Inconsolata\ for\ Powerline\ 11
+```
 
 ## Features
 
@@ -73,7 +81,7 @@ If you want to customize the config, you should not need to fork and/or make cha
 
 * **General**
     - [NERDTree](https://github.com/scrooloose/nerdtree)
-    - [NERDTree-symlink](EvanDotPro/nerdtree-symlink) (small plugin by me to allow easily creating symlinks from NERDTree.
+    - [NERDTree-symlink](EvanDotPro/nerdtree-symlink) (small plugin by me to allow easily creating symlinks from NERDTree)
     - [ctrlp.vim](https://github.com/kien/ctrlp.vim)
     - [Powerline](https://github.com/Lokaltog/vim-powerline)
     - [numbers.vim](http://myusuf3.github.com/numbers.vim/)
@@ -89,6 +97,44 @@ If you want to customize the config, you should not need to fork and/or make cha
     - [gist-vim](https://github.com/mattn/gist-vim) (and dependency [webapi-vim](https://github.com/mattn/webapi-vim))
 
 (TODO: There's more -- I need to finish this list)
+
+## Screenshots / Tour
+
+[vim-zoom](https://github.com/EvanDotPro/vim-zoom) allows you to zoom in and out (adjusts font size):
+
+![](http://evan.pro/caps/ffd72d.png)
+
+[Powerline](https://github.com/Lokaltog/powerline) provides a sexy looking status bar:
+
+![](http://evan.pro/caps/9421e0.png)
+
+Git diff info (+/-/~) in the gutter area [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (port of the Sublime 2 [Git Gutter](https://github.com/jisaacks/GitGutter) plugin).
+
+![](http://evan.pro/caps/6317ff.png)
+
+[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors) provides multiple cursor support just like Sublime:
+
+![](https://github.com/terryma/vim-multiple-cursors/raw/master/assets/example2.gif?raw=true)
+
+Inline syntax checking provided by [Syntastic](https://github.com/scrooloose/syntastic):
+
+![](http://evan.pro/caps/2f3685.png)
+
+[NERDTree](https://github.com/scrooloose/nerdtree) provides a powerful IDE-like tree explorer:
+
+![](http://evan.pro/caps/847071.png)
+
+Quickly and easily post code to Gists thanks to [gist-vim](https://github.com/mattn/gist-vim):
+
+![](http://evan.pro/caps/62e199.png)
+
+_Awesome_ Git/Github integration courtesy of [fugitive](https://github.com/tpope/vim-fugitive):
+
+![](http://evan.pro/caps/fab212.png)
+
+Tabbing made easy with [Tabular](https://github.com/godlygeek/tabular):
+
+![](http://evan.pro/caps/33c34c.png)
 
 ## Misc Tips
 
