@@ -100,7 +100,7 @@ If you want to customize the config, you should not need to fork and/or make cha
 
 ## Screenshots / Tour
 
-[vim-zoom](https://github.com/EvanDotPro/vim-zoom) allows you to zoom in and out (adjusts font size):
+[vim-zoom](https://github.com/EvanDotPro/vim-zoom) allows you to zoom in and out (adjusts font size) by simply holding control and using your scroll wheel:
 
 ![](http://evan.pro/caps/ffd72d.png)
 
@@ -135,6 +135,10 @@ _Awesome_ Git/Github integration courtesy of [fugitive](https://github.com/tpope
 Tabbing made easy with [Tabular](https://github.com/godlygeek/tabular):
 
 ![](http://evan.pro/caps/33c34c.png)
+
+Quick PHP getter/setter generation with [php\_getset.vim](https://github.com/EvanDotPro/php_getset.vim)
+
+![](http://evan.pro/caps/9949fb.png)
 
 ## Misc Tips
 
