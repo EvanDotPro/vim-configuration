@@ -77,6 +77,13 @@ If you want to customize the config, you should not need to fork and/or make cha
 * `<leader>w` - Write current file
 * `<leader>c` and `<leader>v` - Copy and paste with the system clipboard
 
+### PHP Auto-completion
+
+Using a [patched version of ctags](https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags), you
+can now enjoy smart, namespace, trait, and context-aware auto-completion for
+PHP in vim. The [phpcomplete.vim]() included in my config already has support
+for the more intelligent tag files.
+
 ## Plugins
 
 * **General**

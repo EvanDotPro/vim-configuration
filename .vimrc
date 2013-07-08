@@ -95,8 +95,9 @@
 
         " PHP
             if count(g:bundle_groups, 'php')
+                " PHP syntax highlighting for 5.4, 5.5+
                 Bundle 'StanAngeloff/php.vim'
-                Bundle 'EvanDotPro/phpcomplete.vim', 'feature/improvements'
+                Bundle 'shawncplus/phpcomplete.vim'
                 Bundle 'EvanDotPro/php_getset.vim'
                 Bundle 'mikehaertl/pdv-standalone'
             endif
