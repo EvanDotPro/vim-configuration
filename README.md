@@ -140,6 +140,10 @@ Quick PHP getter/setter generation with [php\_getset.vim](https://github.com/Eva
 
 ![](http://evan.pro/caps/9949fb.png)
 
+Write HTML insanely fast using [ZenCoding](https://github.com/mattn/zencoding-vim):
+
+![](http://evan.pro/caps/8c9660.png)
+
 ## Misc Tips
 
 #### Make the GTK background for GVIM match Vim background color
