@@ -91,6 +91,7 @@
                 Bundle 'mattn/zencoding-vim'
                 Bundle 'tpope/vim-markdown'
                 Bundle 'scrooloose/syntastic', '3.0.0'
+                Bundle 'joonty/vdebug'
             endif
 
         " PHP
