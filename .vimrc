@@ -88,7 +88,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
-                Bundle 'mattn/zencoding-vim'
+                Bundle 'mattn/emmet-vim'
                 Bundle 'tpope/vim-markdown'
                 Bundle 'scrooloose/syntastic', '3.0.0'
                 Bundle 'joonty/vdebug'
@@ -239,7 +239,7 @@
         noremap <C-S-TAB> :bprev<CR>
     endif
 
-    " ZenCoding-vim
+    " emmet-vim
         map <C-z> <C-y>,
 
     " pdv-standalone
