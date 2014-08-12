@@ -88,7 +88,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
-                Bundle 'mattn/zencoding-vim'
+                Bundle 'mattn/emmet-vim'
                 Bundle 'tpope/vim-markdown'
                 Bundle 'scrooloose/syntastic', '3.0.0'
                 Bundle 'joonty/vdebug'
@@ -101,6 +101,7 @@
                 Bundle 'shawncplus/phpcomplete.vim'
                 Bundle 'EvanDotPro/php_getset.vim'
                 Bundle 'mikehaertl/pdv-standalone'
+                Bundle 'vim-php/vim-php-refactoring'
             endif
 
     endif
@@ -172,8 +173,6 @@
     set tabstop=4     " an indentation every four columns
     set softtabstop=4 " let backspace delete indent
     " Remove trailing whitespaces and ^M chars
-    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,phtml,vimrc autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
 " }
 
 " Key (re)Mappings {
