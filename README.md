@@ -147,7 +147,7 @@ Quick PHP getter/setter generation with [php\_getset.vim](https://github.com/Eva
 
 ![](http://evan.pro/caps/9949fb.png)
 
-Write HTML insanely fast using [ZenCoding](https://github.com/mattn/zencoding-vim):
+Write HTML insanely fast using [Emmet-vim](https://github.com/mattn/emmet-vim):
 
 ![](http://evan.pro/caps/8c9660.png)
 
