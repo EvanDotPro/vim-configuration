@@ -1,4 +1,4 @@
-" Modeline and Notes {
+ " Modeline and Notes {
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
 "  _____                ______      _  ______          _
@@ -88,7 +88,7 @@
                 Bundle 'godlygeek/tabular'
                 Bundle 'mattn/webapi-vim'
                 Bundle 'mattn/gist-vim'
-                Bundle 'mattn/zencoding-vim'
+                Bundle 'mattn/emmet-vim'
                 Bundle 'tpope/vim-markdown'
                 Bundle 'scrooloose/syntastic', '3.0.0'
                 Bundle 'joonty/vdebug'
@@ -101,6 +101,7 @@
                 Bundle 'shawncplus/phpcomplete.vim'
                 Bundle 'EvanDotPro/php_getset.vim'
                 Bundle 'mikehaertl/pdv-standalone'
+                Bundle 'vim-php/vim-php-refactoring'
             endif
 
     endif
