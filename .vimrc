@@ -1,4 +1,4 @@
-" Modeline and Notes {
+ " Modeline and Notes {
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
 "  _____                ______      _  ______          _
@@ -83,6 +83,7 @@ if !exists('g:override_bundles')
             Bundle 'spf13/vim-colors'
         endif
 
+<<<<<<< HEAD
     " General Programming
         if count(g:bundle_groups, 'programming')
             Bundle 'tpope/vim-fugitive'
@@ -114,6 +115,30 @@ if !exists('g:override_bundles')
             Bundle 'mikehaertl/pdv-standalone'
             Bundle 'vim-php/vim-php-refactoring'
             Bundle 'joonty/vim-phpqa.git'
+=======
+        " General Programming
+            if count(g:bundle_groups, 'programming')
+                Bundle 'tpope/vim-fugitive'
+                Bundle 'airblade/vim-gitgutter'
+                Bundle 'godlygeek/tabular'
+                Bundle 'mattn/webapi-vim'
+                Bundle 'mattn/gist-vim'
+                Bundle 'mattn/emmet-vim'
+                Bundle 'tpope/vim-markdown'
+                Bundle 'scrooloose/syntastic', '3.0.0'
+                Bundle 'joonty/vdebug'
+            endif
+
+        " PHP
+            if count(g:bundle_groups, 'php')
+                " PHP syntax highlighting for 5.4, 5.5+
+                Bundle 'StanAngeloff/php.vim'
+                Bundle 'shawncplus/phpcomplete.vim'
+                Bundle 'EvanDotPro/php_getset.vim'
+                Bundle 'mikehaertl/pdv-standalone'
+                Bundle 'vim-php/vim-php-refactoring'
+            endif
+>>>>>>> 152f0d90f06c80732962bd53e1f823729720916c
 
         endif
 
