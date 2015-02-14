@@ -56,7 +56,7 @@
 
 " You can define just the groups you need in your config.local.vim
 if !exists('g:bundle_groups')
-    let g:bundle_groups=['general', 'themes', 'programming', 'php']
+    let g:bundle_groups=['general', 'themes', 'programming', 'php', 'html']
 endif
 
 
@@ -83,7 +83,6 @@ if !exists('g:override_bundles')
             Bundle 'spf13/vim-colors'
         endif
 
-<<<<<<< HEAD
     " General Programming
         if count(g:bundle_groups, 'programming')
             Bundle 'tpope/vim-fugitive'
@@ -104,42 +103,22 @@ if !exists('g:override_bundles')
 
     " PHP
         if count(g:bundle_groups, 'php')
-            " PHP syntax highlighting for 5.4, 5.5+
+            "PHP syntax highlighting for 5.4, 5.5+
             Bundle 'Shougo/vimproc.vim'
             Bundle 'Shougo/unite.vim'
             "Bundle 'm2mdas/phpcomplete-extended'
+            Bundle 'm2mdas/phpcomplete-extended-laravel' 
             Bundle 'arnaud-lb/vim-php-namespace'
-            "Bundle 'm2mdas/phpcomplete-extended-laravel'
             Bundle 'StanAngeloff/php.vim'
             Bundle 'EvanDotPro/php_getset.vim'
             Bundle 'mikehaertl/pdv-standalone'
             Bundle 'vim-php/vim-php-refactoring'
             Bundle 'joonty/vim-phpqa.git'
-=======
-        " General Programming
-            if count(g:bundle_groups, 'programming')
-                Bundle 'tpope/vim-fugitive'
-                Bundle 'airblade/vim-gitgutter'
-                Bundle 'godlygeek/tabular'
-                Bundle 'mattn/webapi-vim'
-                Bundle 'mattn/gist-vim'
-                Bundle 'mattn/emmet-vim'
-                Bundle 'tpope/vim-markdown'
-                Bundle 'scrooloose/syntastic', '3.0.0'
-                Bundle 'joonty/vdebug'
-            endif
 
-        " PHP
-            if count(g:bundle_groups, 'php')
-                " PHP syntax highlighting for 5.4, 5.5+
-                Bundle 'StanAngeloff/php.vim'
-                Bundle 'shawncplus/phpcomplete.vim'
-                Bundle 'EvanDotPro/php_getset.vim'
-                Bundle 'mikehaertl/pdv-standalone'
-                Bundle 'vim-php/vim-php-refactoring'
-            endif
->>>>>>> 152f0d90f06c80732962bd53e1f823729720916c
-
+        endif
+    " HTML
+        if count(g:bundle_groups, 'html')
+            Bundle 'othree/html5.vim'
         endif
 
 endif
@@ -211,6 +190,7 @@ set expandtab     " tabs are spaces, not tabs
 set tabstop=4     " an indentation every four columns
 set softtabstop=4 " let backspace delete indent
 " Remove trailing whitespaces and ^M chars
+     autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml,phtml,vimrc autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 " }
 
 " Key (re)Mappings {
@@ -327,70 +307,6 @@ noremap <Leader>u :call PhpInsertUse()<CR>
 " }
 
 " Functions {
-
-" Source: http://vim.wikia.com/wiki/VimTip165
-" Cleanly deletes a buffer without messing up the window layout.
-" Modified by Evan to prompt for unsaved changes.
-function s:Kwbd(kwbdStage)
-  if(a:kwbdStage == 1)
-    if(!buflisted(winbufnr(0)))
-      bd!
-      return
-    endif
-    let s:kwbdBufNum = bufnr("%")
-    let s:kwbdWinNum = winnr()
-    windo call s:Kwbd(2)
-    execute s:kwbdWinNum . 'wincmd w'
-    let s:buflistedLeft = 0
-    let s:bufFinalJump = 0
-    let l:nBufs = bufnr("$")
-    let l:i = 1
-    while(l:i <= l:nBufs)
-      if(l:i != s:kwbdBufNum)
-        if(buflisted(l:i))
-          let s:buflistedLeft = s:buflistedLeft + 1
-        else
-          if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
-            let s:bufFinalJump = l:i
-          endif
-        endif
-      endif
-      let l:i = l:i + 1
-    endwhile
-    if(!s:buflistedLeft)
-      if(s:bufFinalJump)
-        windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
-      else
-        enew
-        let l:newBuf = bufnr("%")
-        windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
-      endif
-      execute s:kwbdWinNum . 'wincmd w'
-    endif
-    if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
-      execute ":confirm :bd " . s:kwbdBufNum
-    endif
-    if(!s:buflistedLeft)
-      set buflisted
-      set bufhidden=delete
-      set buftype=
-      setlocal noswapfile
-    endif
-  else
-    if(bufnr("%") == s:kwbdBufNum)
-      let prevbufvar = bufnr("#")
-      if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
-        b #
-      else
-        bn
-      endif
-    endif
-  endif
-endfunction
-
-command! Kwbd call s:Kwbd(1)
-nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-nmap <silent> <leader>q :Kwbd<CR>
 
 " Put all swap, backup, and view files in a central location
 " Source: spf-13-vim (https://github.com/spf13/spf13-vim/blob/4f01f8f7a35736fc106a1735e076a83ac548e104/.vimrc#L552)
