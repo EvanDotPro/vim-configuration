@@ -260,8 +260,8 @@ endif
     map <C-z> <C-y>,
 
 " pdv-standalone
-nnoremap <C-\>p :call PhpDocSingle()<CR>
-vnoremap <C-\>p :call PhpDocRange()<CR>
+nnoremap <C-p> :call PhpDocSingle()<CR>
+vnoremap <C-p> :call PhpDocRange()<CR>
 
 "unit test everything
 nmap ,t :!clear && phpunit<cr>
