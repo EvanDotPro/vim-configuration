@@ -66,7 +66,8 @@ if !exists('g:override_bundles')
         if count(g:bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
             Bundle 'EvanDotPro/vim-zoom'
-            Bundle 'EvanDotPro/nerdtree-symlink'
+            Bundle 'EvanDotPro/nerdtree-symlink',
+            Bundle 'scrooloose/nerdcommenter',
             Bundle 'kien/ctrlp.vim'
             "Bundle 'Lokaltog/vim-powerline', 'develop'
             Bundle 'L9', '1.1'
@@ -76,6 +77,7 @@ if !exists('g:override_bundles')
             Bundle 'sjl/gundo.vim'
             Bundle 'elzr/vim-json'
             Bundle 'codenothing/jsonlint'
+            Bundle 'honza/vim-snippets'
         endif
 
     " Themes
@@ -117,6 +119,9 @@ if !exists('g:override_bundles')
             Bundle 'vim-php/vim-php-refactoring'
             Bundle 'joonty/vim-phpqa.git'
             Bundle 'vim-php/vim-composer'
+            Bundle 'sniphpets/sniphpets'
+            Bundle 'sniphpets/sniphpets-common',
+            "Bundle 'sniphpets/sniphpets-postfix-codes'
 
         endif
     " HTML
