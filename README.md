@@ -3,12 +3,12 @@
 Version 1.0.0 Created by Evan Coury
 
 ```
-  _____                ______      _  ______          _
- |  ___|               |  _  \    | | | ___ \        ( )
- | |____   ____ _ _ __ | | | |___ | |_| |_/ / __ ___ |/ ___
- |  __\ \ / / _` | '_ \| | | / _ \| __|  __/ '__/ _ \  / __|
- | |___\ V / (_| | | | | |/ / (_) | |_| |  | | | (_) | \__ \
- \____/ \_/ \__,_|_| |_|___/ \___/ \__\_|  |_|  \___/  |___/
+  _    _                 _     _   __          __  _     _____             _     
+ | |  | |               | |   | |  \ \        / / | |   |  __ \           ( )    
+ | |__| |_   _ _ __ ___ | |__ | | __\ \  /\  / /__| |__ | |  | | _____   _|/ ___ 
+ |  __  | | | | '_ ` _ \| '_ \| |/ _ \ \/  \/ / _ \ '_ \| |  | |/ _ \ \ / / / __|
+ | |  | | |_| | | | | | | |_) | |  __/\  /\  /  __/ |_) | |__| |  __/\ V /  \__ \
+ |_|  |_|\__,_|_| |_| |_|_.__/|_|\___| \/  \/ \___|_.__/|_____/ \___| \_/   |___/                                                                                                                                                                      
             _                              __ _
            (_)                            / _(_)
      __   ___ _ __ ___     ___ ___  _ __ | |_ _  __ _
@@ -21,7 +21,7 @@ Version 1.0.0 Created by Evan Coury
 
 ## Introduction
 
-This is the personal vim config of Evan Coury (aka EvanDotPro).
+This is the personal vim config of Thomas Veilleux (aka HumbleWebDev).
 
 Author: Evan Coury, http://blog.evan.pro/
 URL: https://github.com/EvanDotPro/vim-configuration
@@ -37,9 +37,9 @@ Special thanks to:
 
 - If you have an existing vim configuration, back it up:
     - ``for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && mv $i $i.`date +%Y%m%d`; done``
-- `git clone --recursive https://github.com/EvanDotPro/vim-configuration.git $HOME/edp-vim`
-- `ln -s $HOME/edp-vim $HOME/.vim`
-- `ln -s $HOME/edp-vim/.vimrc $HOME/.vimrc`
+- `git clone --recursive https://github.com/HumbleWebDev/vim-configuration.git $HOME/hwd-vim`
+- `ln -s $HOME/hwd-vim $HOME/.vim`
+- `ln -s $HOME/hwd-vim/.vimrc $HOME/.vimrc`
 - `vim +BundleInstall! +BundleClean +q` (You may see some errors about colorscheme or other things, just hit enter and ignore them.)
 - Copy `config.local.vim.dist` to `config.local.vim` and set your base workspace directory.
 - Create an `override.local.vim` to override settings such as fonts and stuff.
