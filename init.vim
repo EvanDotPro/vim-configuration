@@ -74,7 +74,7 @@ let g:phpfold_text_percent = 0
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 
-source projects.vim
+source ~/.config/nvim/projects.vim
 
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
